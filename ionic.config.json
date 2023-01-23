@@ -1,0 +1,7 @@
+{
+  "name": "truk",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
