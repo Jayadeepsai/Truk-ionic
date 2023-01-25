@@ -1,17 +1,63 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+
+
+
+
+
+    <ion-icon name="person-circle" style="font-size: 35px; margin-left: 1rem;"></ion-icon>
+
+    <div style="margin-top:7px">
+      Ro-one
+    </div>
+    <div class="flex-right">
+      <ion-icon name="notifications-outline" style=" margin-top: 7px; font-size: 30px;" slot="end"></ion-icon>
+
+    </div>
+
+
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
+<!-- <ion-buttons slot="end">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons> -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header>
+      <ion-toolbar color="white">
+        <div slot="start" style="padding: 0px 10px;">
+          <ion-icon name="person-circle" style="font-size: 35px; margin-left: 1rem;"></ion-icon>
+        </div>
+  <h1 style="margin-left: -3px;
+  margin-top: 8px;">Ro-one</h1>
+        
+        <ion-icon name="notifications-outline" style=" margin-top: 7px; font-size: 30px; margin-left: -3px;
+        " slot="end"></ion-icon>
+        
+      </ion-toolbar>
+    </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content>
+  <!-- <ion-toolbar class="new-background-color"> -->
+
+  <!-- <ion-button  class="homeButtons" >Load listing</ion-button>
+  <ion-button class="secondButton" style="margin-left: 170px;">My Bids</ion-button> -->
+  <ion-list>
+    <div class="ion-margin marginBottom" (ionChange)="segmentChanged($event)">
+      <ion-segment mode="ios" [value]="segmentValue">
+        <ion-segment-button value="1">
+          <ion-label>Load Listing</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="2">
+          <ion-label>My Bids</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <app-loadlisting *ngIf="segmentValue =='1'"></app-loadlisting>
+    <app-mybids *ngIf="segmentValue =='2'"></app-mybids>
+  </ion-list>
+
+  <!-- </ion-toolbar> -->
+
+
 </ion-content>
+<ion-button class="postLoad" routerLink="/attach-new-load" expand="full">Post Load</ion-button>

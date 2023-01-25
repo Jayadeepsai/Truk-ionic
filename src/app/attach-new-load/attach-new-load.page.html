@@ -1,0 +1,199 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+    <ion-icon name="close-sharp" routerLink="/tabs/tab1" style="font-size: 28px; color: red;"></ion-icon>
+        <ion-title>Attach New Load</ion-title>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<br><br>
+
+<ion-content>
+  <div class="container">
+    <div class="form-group">
+      <ion-input type="text" class="form-control" placeholder="  Enter Pick Up Location"></ion-input>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <ion-input type="text" class="form-control" placeholder="  Enter Drop Location"></ion-input>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <div class="form-control">
+        <ion-select placeholder="Select Goods Type" [multiple]="true">
+          <ion-select-option value="Bricks">Bricks</ion-select-option>
+          <ion-select-option value="Cement Products">Cement Products</ion-select-option>
+          <ion-select-option value="Clothes">Clothes</ion-select-option>
+          <ion-select-option value="E-Waste">E-Waste</ion-select-option>
+          <ion-select-option value="Electtrical Equipment">Electtrical Equipment</ion-select-option>
+          <ion-select-option value="Flowers">Flowers</ion-select-option>
+          <ion-select-option value="Fertilizer and Seeds">Fertilizer and Seeds</ion-select-option>
+          <ion-select-option value="Food">Food</ion-select-option>
+
+
+        </ion-select>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <div class="form-control">
+        <ion-input type="datetime-local" style="border: none; "></ion-input>
+      </div>
+    </div>
+
+    <br> -->
+
+<!-- <div class="form-group">
+      <div class="form-control">
+        <ion-select placeholder="Quantity Type" [multiple]="true">
+          <ion-select-option value="Tonnes">Tonnes</ion-select-option>
+          <ion-select-option value="Kilo Litres">Litres</ion-select-option>
+        </ion-select>
+      </div>
+    </div>
+
+    <br> -->
+<!-- 
+    <div class="form-group">
+      <ion-input type="text" class="form-control" placeholder="  Quantity"></ion-input>
+    </div>
+
+    <br>
+
+   
+
+  </div>
+</ion-content>
+<ion-button class="next">Next</ion-button> -->
+
+
+
+
+
+
+
+
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+      <ion-icon name="arrow-back-sharp" routerLink="/tabs/tab1" style="font-size: 30px;"></ion-icon>
+      <ion-title>Attach New Load</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<br><br>
+
+<ion-content>
+  <div class="container">
+    <div class="form-group">
+      <ion-input type="text" class="form-control" placeholder="  Enter Pick Up Location" [(ngModel)]="OriginLocation"
+        (ionInput)="GetOriginLocation(OriginLocation)" (ionClear)="ClearAutocomplete()"></ion-input>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <ion-input type="text" class="form-control" placeholder="  Enter Drop Location" [(ngModel)]="DestinationLocation"
+        (ionInput)="GetDestinationLocation(DestinationLocation)" (ionClear)="ClearAutocomplete()"></ion-input>
+    </div>
+
+    <br>
+
+    <!--showing the list of address-->
+    <ion-list [hidden]="autocompleteItems.length == 0">
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
+        {{ item.description }}
+      </ion-item>
+    </ion-list>
+
+
+
+    <div class="form-group">
+      <ion-input type="  text" class="form-control" placeholder="User Number" [(ngModel)]="Number"></ion-input>
+    </div>
+
+    <br>
+    <div class="form-group">
+      <div class="form-control">
+        <ion-select placeholder="Select Vehicle Type" [multiple]="true" [(ngModel)]="vehicle">
+          <ion-select-option value="LCV">LCV</ion-select-option>
+          <ion-select-option value="Truck">Truck</ion-select-option>
+          <ion-select-option value="Hyva">Hyva</ion-select-option>
+          <ion-select-option value="Container">Container</ion-select-option>
+          <ion-select-option value="Trailer">Trailer</ion-select-option>
+          <ion-select-option value="Tanker">Tanker</ion-select-option>
+
+
+
+        </ion-select>
+      </div>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <div class="form-control">
+        <ion-select placeholder="Select Goods Type" [multiple]="true" [(ngModel)]="product">
+          <ion-select-option value="Bricks">Bricks</ion-select-option>
+          <ion-select-option value="Cement Products">Cement Products</ion-select-option>
+          <ion-select-option value="Clothes">Clothes</ion-select-option>
+          <ion-select-option value="E-Waste">E-Waste</ion-select-option>
+          <ion-select-option value="Electtrical Equipment">Electtrical Equipment</ion-select-option>
+          <ion-select-option value="Flowers">Flowers</ion-select-option>
+          <ion-select-option value="Fertilizer and Seeds">Fertilizer and Seeds</ion-select-option>
+          <ion-select-option value="Food">Food</ion-select-option>
+
+
+        </ion-select>
+      </div>
+    </div>
+
+    <br>
+    <div class="form-group">
+      <ion-input type="  text" class="form-control" placeholder="Vehicle Load Capacity(In Tonnes)"
+        [(ngModel)]="loadCapacity"></ion-input>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <div class="form-control">
+        <ion-input type="datetime-local" style="border: none; " [(ngModel)]="date"></ion-input>
+      </div>
+    </div>
+
+    <br>
+
+    <!-- <div class="form-group">
+      <div class="form-control">
+        <ion-select placeholder="Quantity Type" [multiple]="true" [(ngModel)]="tonnes">
+          <ion-select-option value="Tonnes">Tonnes</ion-select-option>
+          <ion-select-option value="Kilo Litres">Litres</ion-select-option>
+        </ion-select>
+      </div>
+    </div> -->
+
+
+
+    <div class="form-group">
+      <ion-input type="  text" class="form-control" placeholder="Quantity" [(ngModel)]="Quantity"></ion-input>
+    </div>
+
+    <br>
+    <div class="form-group">
+      <ion-input type="  text" class="form-control" placeholder="Expected Price" [(ngModel)]="expectedPrice"></ion-input>
+    </div>
+<br>
+
+
+  </div>
+
+  <div #map='' style="height: 80%;"></div>
+</ion-content>
+<ion-button (click)="sendData()" (click)="calculateAndDisplayRoute()" expand="full" class="next">Submit</ion-button>

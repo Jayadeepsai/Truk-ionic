@@ -1,0 +1,46 @@
+.profile{
+    float: left;
+    margin-right: 50px;
+}
+.new-background-color{
+    --background: white;
+  }
+  .flex-right{
+    justify-content: flex-end;
+  }
+
+  .postLoad{
+    --background: #F58E26;
+  }
+  .homeButtons{
+    --background: #F58E26;
+  }
+  .secondButton{
+    --background: #F58E26;
+  }
+  .loadListing{
+    --background: #F58E26;
+  }
+  ion-content {
+    ion-list {
+        padding-bottom: 50px;
+        ion-segment {
+            --background: var(--ion-color-primary-contrast);
+            border-radius: 20px;
+            border: 1px solid lightgray;
+            --margin-top: 5px;
+            --margin-bottom: 5px;
+            margin-right:10px;
+            ion-segment-button {
+               
+                --background-checked: #f58e26;
+                --indicator-color: #f58e26;
+                --border-radius: 20px;
+                --color: black;
+                --color-checked: var(--ion-color-primary-contrast);
+                
+            }
+        }
+    }
+}
+
