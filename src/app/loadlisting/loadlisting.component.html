@@ -20,9 +20,9 @@
   <br>
 
   <div *ngIf="item.length !=0">
-    <ion-card *ngFor="let text of item" style="border: 1px solid #F58E26; ">
+    <ion-card *ngFor="let text of item" style="border: 2px solid #F58E26; ">
       <ion-card-header>
-        <ion-card-title>{{text.OriginLocation}} --{{text.DestinationLocation}}</ion-card-title>
+        <ion-card-title>{{text.OriginLocation}} -- {{text.DestinationLocation}}</ion-card-title>
         <ion-card-subtitle>Posted On{{text.date}} |Expires in 24hrs</ion-card-subtitle>
         
       </ion-card-header>
