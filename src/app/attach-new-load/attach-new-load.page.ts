@@ -16,7 +16,12 @@ export class AttachNewLoadPage implements AfterViewInit {
   Number:any;
   vehicle:any;
   loadCapacity:any;
-  expectedPrice:any
+  expectedPrice:any;
+  typeOfPay:any;
+  comments:any;
+  length:any;
+  breadth:any;
+  height:any;
 
 
   map: any;
@@ -41,6 +46,7 @@ export class AttachNewLoadPage implements AfterViewInit {
 
   
   Items: any;
+  data: any;
   
 
   constructor(
@@ -81,6 +87,11 @@ export class AttachNewLoadPage implements AfterViewInit {
 
     // console.log(this.DestinationLocation)
 
+  }
+
+  out(data:any){
+    console.log(data)
+    this.data=data
   }
 
   GetDestinationLocation(data: any) {
@@ -174,6 +185,12 @@ calculateAndDisplayRoute() {
       vehicle: this.vehicle,
       loadCapacity: this.loadCapacity,
       expectedPrice: this.expectedPrice,
+      data:this.data,
+      typeOfPay:this.typeOfPay,
+      length:this.length,
+      breadth:this.breadth,
+      height:this.height,
+      comments:this.comments
 
 
     }
@@ -222,6 +239,8 @@ calculateAndDisplayRoute() {
     
         await alert.present();
   }
+
+  
 
 }
 

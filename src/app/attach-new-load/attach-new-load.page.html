@@ -78,7 +78,7 @@
 
 
 
-
+<!--Hearder-->
 
 <ion-header>
   <ion-toolbar>
@@ -89,111 +89,339 @@
   </ion-toolbar>
 </ion-header>
 
-<br><br>
-
 <ion-content>
-  <div class="container">
-    <div class="form-group">
-      <ion-input type="text" class="form-control" placeholder="  Enter Pick Up Location" [(ngModel)]="OriginLocation"
-        (ionInput)="GetOriginLocation(OriginLocation)" (ionClear)="ClearAutocomplete()"></ion-input>
-    </div>
 
-    <br>
+  <br>
 
-    <div class="form-group">
-      <ion-input type="text" class="form-control" placeholder="  Enter Drop Location" [(ngModel)]="DestinationLocation"
-        (ionInput)="GetDestinationLocation(DestinationLocation)" (ionClear)="ClearAutocomplete()"></ion-input>
-    </div>
+  <!--Expansion panel-->
 
-    <br>
 
-    <!--showing the list of address-->
-    <ion-list [hidden]="autocompleteItems.length == 0">
-      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
-        {{ item.description }}
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light" class="load">
+        <ion-label style="font-size: larger;">Load Details</ion-label>
       </ion-item>
-    </ion-list>
+      <div class="ion-padding" slot="content">
+
+        <div class="container">
+
+          <!--select origin Location-->
+
+
+          <div class="form-group">
+            <ion-input type="text" class="form-control" placeholder="  Enter Pick Up Location"
+              [(ngModel)]="OriginLocation" (ionInput)="GetOriginLocation(OriginLocation)"
+              (ionClear)="ClearAutocomplete()"></ion-input>
+          </div>
+
+          <br>
+
+          <!--select destination Location-->
+
+          <div class="form-group">
+            <ion-input type="text" class="form-control" placeholder="  Enter Drop Location"
+              [(ngModel)]="DestinationLocation" (ionInput)="GetDestinationLocation(DestinationLocation)"
+              (ionClear)="ClearAutocomplete()"></ion-input>
+          </div>
+
+          <!--showing the list of address-->
+          <ion-list [hidden]="autocompleteItems.length == 0">
+            <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+
+          <br>
+
+          <!--User Number-->
+
+          <div class="form-group">
+            <ion-input type="  text" class="form-control" placeholder="User Number" [(ngModel)]="Number"></ion-input>
+          </div>
+
+          <br>
+
+          <!--select Goods-->
+
+          <div class="form-group">
+            <div class="form-control">
+              <ion-label>Type of Product</ion-label>
+              <ion-select placeholder="Select Goods Type" [multiple]="true" [(ngModel)]="product">
+                <ion-select-option value="Bricks">Bricks</ion-select-option>
+                <ion-select-option value="Cement Products">Cement Products</ion-select-option>
+                <ion-select-option value="Clothes">Clothes</ion-select-option>
+                <ion-select-option value="E-Waste">E-Waste</ion-select-option>
+                <ion-select-option value="Electrical Equipment">Electrical Equipment</ion-select-option>
+                <ion-select-option value="Flowers">Flowers</ion-select-option>
+                <ion-select-option value="Fertilizer and Seeds">Fertilizer and Seeds</ion-select-option>
+                <ion-select-option value="Food">Food</ion-select-option>
+
+              </ion-select>
+            </div>
+          </div>
+
+          <br>
+
+          <!--select Date and Time-->
+
+          <div class="form-group">
+            <div class="form-control">
+              <ion-input type="datetime-local" style="border: none; " [(ngModel)]="date"></ion-input>
+            </div>
+          </div>
 
 
 
-    <div class="form-group">
-      <ion-input type="  text" class="form-control" placeholder="User Number" [(ngModel)]="Number"></ion-input>
-    </div>
 
-    <br>
-    <div class="form-group">
-      <div class="form-control">
-        <ion-select placeholder="Select Vehicle Type" [multiple]="true" [(ngModel)]="vehicle">
-          <ion-select-option value="LCV">LCV</ion-select-option>
-          <ion-select-option value="Truck">Truck</ion-select-option>
-          <ion-select-option value="Hyva">Hyva</ion-select-option>
-          <ion-select-option value="Container">Container</ion-select-option>
-          <ion-select-option value="Trailer">Trailer</ion-select-option>
-          <ion-select-option value="Tanker">Tanker</ion-select-option>
-
-
-
-        </ion-select>
+        </div>
       </div>
-    </div>
+    </ion-accordion>
+
     <br>
 
-    <div class="form-group">
-      <div class="form-control">
-        <ion-select placeholder="Select Goods Type" [multiple]="true" [(ngModel)]="product">
-          <ion-select-option value="Bricks">Bricks</ion-select-option>
-          <ion-select-option value="Cement Products">Cement Products</ion-select-option>
-          <ion-select-option value="Clothes">Clothes</ion-select-option>
-          <ion-select-option value="E-Waste">E-Waste</ion-select-option>
-          <ion-select-option value="Electtrical Equipment">Electtrical Equipment</ion-select-option>
-          <ion-select-option value="Flowers">Flowers</ion-select-option>
-          <ion-select-option value="Fertilizer and Seeds">Fertilizer and Seeds</ion-select-option>
-          <ion-select-option value="Food">Food</ion-select-option>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light" class="truck">
+        <ion-label style="font-size: larger;">Select Truck</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
 
 
-        </ion-select>
+        <!--select vehicle Type-->
+
+        <!--  <div class="form-group">
+          <div class="form-control">
+            <ion-select placeholder="Select Vehicle Type" [multiple]="true" [(ngModel)]="vehicle">
+              <ion-select-option value="LCV">LCV</ion-select-option>
+              <ion-select-option value="Truck">Truck</ion-select-option>
+              <ion-select-option value="Hyva">Hyva</ion-select-option>
+              <ion-select-option value="Container">Container</ion-select-option>
+              <ion-select-option value="Trailer">Trailer</ion-select-option>
+              <ion-select-option value="Tanker">Tanker</ion-select-option>
+
+            </ion-select>
+          </div>
+        </div> -->
+
+        <br>
+
+        <!--Quantity-->
+
+        <div class="form-group">
+          <ion-input type="  text" class="form-control" placeholder="Quantity" [(ngModel)]="Quantity"></ion-input>
+        </div>
+
+        <br>
+
+
+        <div class="row" >
+          <div>
+            <div class="column">
+              <input type="radio" name="payment" id="card" (change)="out('Tanker')">
+              <label for="card">
+                <ion-card-header>
+                  <img src="https://sc04.alicdn.com/kf/HTB12f2keirpK1RjSZFhq6xSdXXa6.jpg" style="height: 94px;
+              width: 131px;
+              margin-top: -50px;;">
+                  <ion-card-title>Tanker</ion-card-title>
+                  <ion-card-subtitle>1 to 35 KL</ion-card-subtitle>
+                </ion-card-header>
+              </label>
+            </div>
+
+            <div class="column">
+              <input type="radio" name="payment" id="car" (change)="out('Hyva')">
+              <label for="car">
+                <ion-card-header>
+                  <img
+                    src="https://cms.eichertrucksandbuses.com/uploads/truck/exterior/d3a75f14ce8935f16998f318360966a0.jpg"
+                    style="height: 94px;
+              width: 131px;
+              margin-top: -50px;;">
+                  <ion-card-title> Hyva</ion-card-title>
+                  <ion-card-subtitle>1 to 35 Tonnes</ion-card-subtitle>
+                </ion-card-header>
+              </label>
+            </div>
+
+            <div class="column">
+              <input type="radio" name="payment" id="ca" (change)="out('LCV')">
+              <label for="ca">
+                <ion-card-header>
+                  <img src="https://vamosys.com/wp-content/uploads/2021/05/top-6-lcv-vehicles-tata-ace-gold-petrol.png"
+                    style="height: 94px;
+              width: 131px;
+              margin-top: -50px;;">
+                  <ion-card-title>LCV</ion-card-title>
+                  <ion-card-subtitle>1 to 6 Tonnes</ion-card-subtitle>
+                </ion-card-header>
+              </label>
+            </div>
+
+            <div class="column">
+              <input type="radio" name="payment" id="cad" (change)="out('Open Truck')">
+              <label for="cad">
+                <ion-card-header>
+                  <img src="https://www.bharatbenz.com/uploads/truck_images/product_types/main_1661768896.png" style="height: 94px;
+            width: 131px;
+            margin-top: -50px;;">
+                  <ion-card-title>Open Truck</ion-card-title>
+                  <ion-card-subtitle>1 to 14 tonnes</ion-card-subtitle>
+                </ion-card-header>
+              </label>
+            </div>
+
+            <div class="column">
+              <input type="radio" name="payment" id="Trailer" (change)="out('Trailer')">
+              <label for="Trailer">
+                <ion-card-header>
+                  <img
+                    src="https://tatatrucks.tatamotors.com/images/tata-heavy-medium-trucks/fully-built-solutions/tata-flat-bed-trailer/flatbedtrailer-overview.png"
+                    style="height: 94px;
+            width: 131px;
+            margin-top: -50px;;">
+                  <ion-card-title>Trailer</ion-card-title>
+                  <ion-card-subtitle>1 to 100 Tonnes</ion-card-subtitle>
+                </ion-card-header>
+              </label>
+            </div>
+
+            <div class="column">
+              <input type="radio" name="payment" id="container" (change)="out('Container')">
+              <label for="container">
+                <ion-card-header>
+                  <img
+                    src="https://www.icemakeindia.com/wp-content/uploads/2019/08/Refrigerated-Container-8-1024x1024.png"
+                    style="height: 94px;
+            width: 131px;
+            margin-top: -50px;;">
+                  <ion-card-title>Container</ion-card-title>
+                  <ion-card-subtitle>1 to 18 Tonnes</ion-card-subtitle>
+                </ion-card-header>
+              </label>
+            </div>
+          </div>
+        </div>
+
+
+       <!--  <ion-list radio-group [(ngModel)]="vehicle">
+
+          <ion-list-header>
+            Auto Manufacturers
+          </ion-list-header>
+        
+          <ion-item>
+            <ion-label>Cord</ion-label>
+            <ion-radio value="cord"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Duesenberg</ion-label>
+            <ion-radio value="duesenberg"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Hudson</ion-label>
+            <ion-radio value="hudson"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Packard</ion-label>
+            <ion-radio value="packard"></ion-radio>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Studebaker</ion-label>
+            <ion-radio value="studebaker"></ion-radio>
+          </ion-item>
+        
+        </ion-list> -->
+
       </div>
-    </div>
+
+
+      <!--select  Vehile capacity-->
+
+      <!-- <div class="form-group">
+          <ion-input type="  text" class="form-control" placeholder="Vehicle Load Capacity(In Tonnes)"
+            [(ngModel)]="loadCapacity"></ion-input>
+        </div> -->
+
+
+    </ion-accordion>
 
     <br>
-    <div class="form-group">
-      <ion-input type="  text" class="form-control" placeholder="Vehicle Load Capacity(In Tonnes)"
-        [(ngModel)]="loadCapacity"></ion-input>
-    </div>
-    <br>
 
-    <div class="form-group">
-      <div class="form-control">
-        <ion-input type="datetime-local" style="border: none; " [(ngModel)]="date"></ion-input>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light" class="payment">
+        <ion-label style="font-size: larger;">Payment</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+
+        <!--Expected Bill-->
+
+        <div class="form-group">
+          <ion-input type="  text" class="form-control" placeholder="Expected Price"
+            [(ngModel)]="expectedPrice"></ion-input>
+        </div>
+
+        <br>
+
+        <!--How would you like to pay-->
+
+        <div class="form-group">
+          <div class="form-control">
+            <ion-label>Mode of Payment</ion-label>
+            <ion-select placeholder="Type of Payment to Lorry Owner" [multiple]="true" [(ngModel)]="typeOfPay">
+              <ion-select-option value="Advance">Advance</ion-select-option>
+              <ion-select-option value="To Pay">To Pay</ion-select-option>
+
+            </ion-select>
+          </div>
+        </div>
+
+        <br>
+
+        <!--ODC checkbox-->
+
+        <!-- <ion-item>
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-label>It's a ODC consignment</ion-label>
+      </ion-item> -->
+
+        <!--Comments-->
+
+        <div class="form-group">
+          <ion-textarea type="  text" class="form-control" placeholder="Comments" [(ngModel)]="comments"></ion-textarea>
+        </div>
+
+        <br>
+
+        <ion-item fill="outline" >
+          <ion-label position="floating">Length</ion-label>
+          <ion-input placeholder="0.0 Mts" [(ngModel)]="length"></ion-input>
+        </ion-item>
+
+        <ion-item fill="outline" >
+          <ion-label position="floating">Breadth</ion-label>
+          <ion-input placeholder="0.0 Mts" [(ngModel)]="breadth"></ion-input>
+        </ion-item>
+
+        <ion-item fill="outline" >
+          <ion-label position="floating">Height</ion-label>
+          <ion-input placeholder="0.0 Mts" [(ngModel)]="height"></ion-input>
+        </ion-item>
+
       </div>
-    </div>
+    </ion-accordion>
+  </ion-accordion-group>
 
-    <br>
-
-    <!-- <div class="form-group">
-      <div class="form-control">
-        <ion-select placeholder="Quantity Type" [multiple]="true" [(ngModel)]="tonnes">
-          <ion-select-option value="Tonnes">Tonnes</ion-select-option>
-          <ion-select-option value="Kilo Litres">Litres</ion-select-option>
-        </ion-select>
-      </div>
-    </div> -->
+  <br>
 
 
-
-    <div class="form-group">
-      <ion-input type="  text" class="form-control" placeholder="Quantity" [(ngModel)]="Quantity"></ion-input>
-    </div>
-
-    <br>
-    <div class="form-group">
-      <ion-input type="  text" class="form-control" placeholder="Expected Price" [(ngModel)]="expectedPrice"></ion-input>
-    </div>
-<br>
-
+  <div class="container">
 
   </div>
-
-  <div #map='' style="height: 80%;"></div>
+  <br>
+  <div #map='' style="height: 90%;"></div>
 </ion-content>
 <ion-button (click)="sendData()" (click)="calculateAndDisplayRoute()" expand="full" class="next">Submit</ion-button>

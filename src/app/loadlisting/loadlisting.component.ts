@@ -17,7 +17,14 @@ export class LoadlistingComponent implements OnInit {
   product: any;
   Quantity: any;
   expectedPrice: any;
-
+  tonnes:any;
+  Number:any;
+  loadCapacity:any;
+  typeOfPay:any;
+  comments:any;
+  length:any;
+  breadth:any;
+  height:any;
 
   constructor() {}
   ngOnInit():void{

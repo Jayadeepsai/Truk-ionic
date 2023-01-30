@@ -23,8 +23,8 @@
     <ion-card *ngFor="let text of item" style="border: 2px solid #F58E26; ">
       <ion-card-header>
         <ion-card-title>{{text.OriginLocation}} -- {{text.DestinationLocation}}</ion-card-title>
-        <ion-card-subtitle>Posted On{{text.date}} |Expires in 24hrs</ion-card-subtitle>
-        
+        <ion-card-subtitle>Posted On {{text.date}} |Expires in 24hrs</ion-card-subtitle>
+
       </ion-card-header>
 
       <ion-card-content>
@@ -32,7 +32,7 @@
       </ion-card-content>
 
       <ion-card-content>
-        {{text.vehicle}} -- {{text.Quantity}}
+        {{text.data}} -- {{text.Quantity}}
       </ion-card-content>
       <ion-card-title style="float: right; margin-top: -53px;">₹ {{text.expectedPrice}}</ion-card-title>
     </ion-card>
