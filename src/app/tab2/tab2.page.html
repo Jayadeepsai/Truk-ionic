@@ -21,9 +21,12 @@
      <div *ngIf="item.length !=0">
       <ion-card *ngFor='let text of item | filter:searchtext' style="border: 2px solid #F58E26; ">
         <ion-card-header>
+         
+          <ion-img src="https://media.istockphoto.com/id/1150981488/vector/brown-paper-box.jpg?b=1&s=170667a&w=0&k=20&c=ExZoHBgVStsXWmQiQw4hVlN-EvhEec-QrqhpXiym2og=" style="height: 70px; width: 70px;" float="left"></ion-img>
+       
           <ion-card-title>{{text.OriginLocation}} -- {{text.DestinationLocation}}</ion-card-title>
           <ion-card-subtitle>Posted On {{text.date}} |Expires in 24hrs</ion-card-subtitle>
-          
+          <p>-----------------------------------------------------------------------</p>
         </ion-card-header>
   
         <ion-card-content>
@@ -34,7 +37,7 @@
           {{text.data}} -- {{text.Quantity}}
         </ion-card-content>
         <ion-card-title style="float: right; margin-top: -53px;">₹ {{text.expectedPrice}}</ion-card-title>
-        <ion-button fill="solid" color="medium" shape="round">Place Bid</ion-button>
+        <ion-button fill="solid"  shape="round" class="place"  (click)="loadById(text)">Place Bid</ion-button>
       </ion-card>
     </div> 
 

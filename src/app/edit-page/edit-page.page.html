@@ -1,0 +1,260 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+      <ion-icon name="arrow-back-sharp" routerLink="/tabs/tab1" style="font-size: 30px;"></ion-icon>
+      <ion-title>Edit Load Details</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<br>
+
+<ion-content>
+  <form [formGroup]="updateproductForm" (ngSubmit)="updateForm(userPost.value)" #userPost="ngForm">
+    <ion-accordion-group [multiple]="true" [value]="['first']">
+
+      <ion-accordion value="first">
+
+        <ion-item slot="header" color="light" class="load">
+          <ion-label>Load Details</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+
+          <ion-list>
+            <ion-item>
+              <ion-label>Pickup Location: </ion-label>
+              <ion-input type="text" placeholder="Enter Pickup Location" formControlName="OriginLocation"
+                [(ngModel)]="real.OriginLocation"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Drop Location: </ion-label>
+              <ion-input type="text" placeholder="Enter Drop Location" formControlName="DestinationLocation"
+                [(ngModel)]="real.DestinationLocation"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>User Number: </ion-label>
+              <ion-input type="text" placeholder="Enter Mobile Number" formControlName="Number"
+                [(ngModel)]="real.Number"></ion-input>
+            </ion-item>
+
+            <div class="form-group">
+              <div class="form-control">
+
+                <ion-select placeholder="Select Goods Type" [multiple]="true" formControlName="product"
+                  [(ngModel)]="real.product">
+                  <ion-select-option value="Bricks">Bricks</ion-select-option>
+                  <ion-select-option value="Cement Products">Cement Products</ion-select-option>
+                  <ion-select-option value="Clothes">Clothes</ion-select-option>
+                  <ion-select-option value="E-Waste">E-Waste</ion-select-option>
+                  <ion-select-option value="Electrical Equipment">Electrical Equipment</ion-select-option>
+                  <ion-select-option value="Flowers">Flowers</ion-select-option>
+                  <ion-select-option value="Fertilizer and Seeds">Fertilizer and Seeds</ion-select-option>
+                  <ion-select-option value="Food">Food</ion-select-option>
+
+                </ion-select>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+              <div class="form-control">
+                <ion-input type="datetime-local" style="border: none; " formControlName="date"
+                  [(ngModel)]="real.date"></ion-input>
+              </div>
+            </div>
+
+
+          </ion-list>
+        </div>
+
+
+      </ion-accordion>
+
+
+      <ion-accordion value="second">
+        <ion-item slot="header" color="light" class="truck">
+          <ion-label>Select Truk</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+
+          <div class="form-group">
+            <ion-input type="  text" class="form-control" placeholder="Quantity"  formControlName="Quantity"
+              [(ngModel)]="real.Quantity"></ion-input>
+          </div>
+
+          <br>
+
+          <div class="row" >
+            <div>
+              <div class="column">
+                <input type="radio" name="payment" id="card" (change)="out('Tanker')">
+                <label for="card">
+                  <ion-card-header>
+                    <img src="https://sc04.alicdn.com/kf/HTB12f2keirpK1RjSZFhq6xSdXXa6.jpg" style="height: 94px;
+              width: 131px;
+              margin-top: -50px;;">
+                    <ion-card-title>Tanker</ion-card-title>
+                    <ion-card-subtitle>1 to 35 KL</ion-card-subtitle>
+                  </ion-card-header>
+                </label>
+              </div>
+
+              <div class="column">
+                <input type="radio" name="payment" id="car" (change)="out('Hyva')">
+                <label for="car">
+                  <ion-card-header>
+                    <img
+                      src="https://cms.eichertrucksandbuses.com/uploads/truck/exterior/d3a75f14ce8935f16998f318360966a0.jpg"
+                      style="height: 94px;
+              width: 131px;
+              margin-top: -50px;;">
+                    <ion-card-title> Hyva</ion-card-title>
+                    <ion-card-subtitle>1 to 35 Tonnes</ion-card-subtitle>
+                  </ion-card-header>
+                </label>
+              </div>
+
+              <div class="column">
+                <input type="radio" name="payment" id="ca" (change)="out('LCV')">
+                <label for="ca">
+                  <ion-card-header>
+                    <img
+                      src="https://vamosys.com/wp-content/uploads/2021/05/top-6-lcv-vehicles-tata-ace-gold-petrol.png"
+                      style="height: 94px;
+              width: 131px;
+              margin-top: -50px;;">
+                    <ion-card-title>LCV</ion-card-title>
+                    <ion-card-subtitle>1 to 6 Tonnes</ion-card-subtitle>
+                  </ion-card-header>
+                </label>
+              </div>
+
+              <div class="column">
+                <input type="radio" name="payment" id="cad" (change)="out('Open Truck')">
+                <label for="cad">
+                  <ion-card-header>
+                    <img src="https://www.bharatbenz.com/uploads/truck_images/product_types/main_1661768896.png" style="height: 94px;
+            width: 131px;
+            margin-top: -50px;;">
+                    <ion-card-title>Open Truck</ion-card-title>
+                    <ion-card-subtitle>1 to 14 tonnes</ion-card-subtitle>
+                  </ion-card-header>
+                </label>
+              </div>
+
+              <div class="column">
+                <input type="radio" name="payment" id="Trailer" (change)="out('Trailer')">
+                <label for="Trailer">
+                  <ion-card-header>
+                    <img
+                      src="https://tatatrucks.tatamotors.com/images/tata-heavy-medium-trucks/fully-built-solutions/tata-flat-bed-trailer/flatbedtrailer-overview.png"
+                      style="height: 94px;
+            width: 131px;
+            margin-top: -50px;;">
+                    <ion-card-title>Trailer</ion-card-title>
+                    <ion-card-subtitle>1 to 100 Tonnes</ion-card-subtitle>
+                  </ion-card-header>
+                </label>
+              </div>
+
+              <div class="column">
+                <input type="radio" name="payment" id="container" (change)="out('Container')">
+                <label for="container">
+                  <ion-card-header>
+                    <img
+                      src="https://www.icemakeindia.com/wp-content/uploads/2019/08/Refrigerated-Container-8-1024x1024.png"
+                      style="height: 94px;
+            width: 131px;
+            margin-top: -50px;;">
+                    <ion-card-title>Container</ion-card-title>
+                    <ion-card-subtitle>1 to 18 Tonnes</ion-card-subtitle>
+                  </ion-card-header>
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ion-accordion>
+
+
+      <ion-accordion value="third">
+        <ion-item slot="header" color="light" class="payment">
+          <ion-label>Payment</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+
+          <div class="ion-padding" slot="content">
+
+            <!--Expected Bill-->
+
+            <div class="form-group">
+              <ion-input type="  text" class="form-control" placeholder="Expected Price"   formControlName="expectedPrice"
+                [(ngModel)]="real.expectedPrice"></ion-input>
+            </div>
+
+            <br>
+
+            <!--How would you like to pay-->
+
+            <div class="form-group">
+              <div class="form-control">
+                <ion-label></ion-label>
+                <ion-select placeholder="Type of Payment to Lorry Owner" [multiple]="true" [(ngModel)]="real.typeOfPay"  formControlName="typeOfPay">
+                  <ion-select-option value="Advance">Advance</ion-select-option>
+                  <ion-select-option value="To Pay">To Pay</ion-select-option>
+
+                </ion-select>
+              </div>
+            </div>
+
+            <br>
+
+            <!--ODC checkbox-->
+
+            <!-- <ion-item>
+          <ion-checkbox slot="start"></ion-checkbox>
+          <ion-label>It's a ODC consignment</ion-label>
+        </ion-item> -->
+
+            <!--Comments-->
+
+            <div class="form-group">
+              <ion-textarea type="  text" class="form-control" placeholder="Comments" formControlName="comments"
+                [(ngModel)]="real.comments"></ion-textarea>
+            </div>
+
+            <br>
+
+            <ion-item fill="outline">
+              <ion-label position="floating">Length</ion-label>
+              <ion-input placeholder="0.0 Mts" [(ngModel)]="real.length" formControlName="length"></ion-input>
+            </ion-item>
+
+            <ion-item fill="outline">
+              <ion-label position="floating">Breadth</ion-label>
+              <ion-input placeholder="0.0 Mts" [(ngModel)]="real.breadth" formControlName="breadth"></ion-input>
+            </ion-item>
+
+            <ion-item fill="outline">
+              <ion-label position="floating">Height</ion-label>
+              <ion-input placeholder="0.0 Mts" [(ngModel)]="real.height" formControlName="height"></ion-input>
+            </ion-item>
+
+          </div>
+        </div>
+
+
+
+
+      </ion-accordion>
+
+    </ion-accordion-group>
+   
+  </form>
+  
+</ion-content>
+<ion-button expand="full" class="next" shape="round" (click)="updateForm(userPost.value)" routerLink="/tabs/tab1">Save</ion-button>

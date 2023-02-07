@@ -1,27 +1,3 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-
-
-
-
-
-    <ion-icon name="person-circle" style="font-size: 35px; margin-left: 1rem;"></ion-icon>
-
-    <div style="margin-top:7px">
-      Ro-one
-    </div>
-    <div class="flex-right">
-      <ion-icon name="notifications-outline" style=" margin-top: 7px; font-size: 30px;" slot="end"></ion-icon>
-
-    </div>
-
-
-  </ion-toolbar>
-</ion-header> -->
-<!-- <ion-buttons slot="end">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
-    </ion-buttons> -->
-
 <ion-header>
   <ion-toolbar color="white">
     <div slot="start" style="padding: 0px 10px;">
@@ -41,7 +17,9 @@
 
   <!-- <ion-button  class="homeButtons" >Load listing</ion-button>
   <ion-button class="secondButton" style="margin-left: 170px;">My Bids</ion-button> -->
-  <ion-list>
+
+
+  <!-- <ion-list>
     <div class="ion-margin marginBottom" (ionChange)="segmentChanged($event)">
       <ion-segment mode="ios" [value]="segmentValue">
         <ion-segment-button value="1">
@@ -54,10 +32,86 @@
     </div>
     <app-loadlisting *ngIf="segmentValue =='1'"></app-loadlisting>
     <app-mybids *ngIf="segmentValue =='2'"></app-mybids>
-  </ion-list>
+  </ion-list> -->
 
   <!-- </ion-toolbar> -->
 
+  <div class="container">
+    <img src="https://img.freepik.com/free-vector/hand-drawn-transport-truck_23-2149145940.jpg"
+      style="align-items: center; text-align: center;">
+
+    <br>
+
+
+  <!-- <ion-card-subtitle style="font-size:larger; font-weight: bold; float: left;">Loads:</ion-card-subtitle> -->
+    <ion-card-header>
+        <div class="dropdown">
+          <ion-icon name="filter" style="float: right; font-size: 28px;" id="dropbtn"></ion-icon>
+          <div class="dropdown-content " style="float: right;">
+
+
+            <a (click)="toggle('Active')">Active</a>
+            <a (click)="toggle('Deactive')">Deactive</a>
+            
+          </div>
+        </div>
+      
+
+    </ion-card-header>
+  
+
+
+
+
+    <div *ngIf="item.length !=0">
+      <ion-card *ngFor="let text of item" style="border: 2px solid #F58E26; ">
+        <ion-card-header>
+          <div class="dropdown">
+            <ion-icon name="ellipsis-vertical-outline" style="float: right; font-size: 28px;" id="dropbtn"></ion-icon>
+            <div class="dropdown-content " style="float: right;">
+
+
+              <a routerLink="/edit-page" (click)="sendData(text)">Edit</a>
+              <a (click)="Isactive(text)" [(ngModel)]="isActive">Deactive</a>
+              <a (click)="loadDetails(text)">More Details</a>
+            </div>
+            <p style="font-size: 17px;">{{text.isActive}}</p>
+            <ion-img
+              src="https://media.istockphoto.com/id/1150981488/vector/brown-paper-box.jpg?b=1&s=170667a&w=0&k=20&c=ExZoHBgVStsXWmQiQw4hVlN-EvhEec-QrqhpXiym2og="
+              style="height: 70px; width: 70px;" float="left"></ion-img>
+            <ion-card-title>{{text.OriginLocation}} -- {{text.DestinationLocation}}</ion-card-title>
+            <ion-card-subtitle>Posted On {{text.date}} |Expires in 24hrs</ion-card-subtitle>
+            <p>-----------------------------------------------------------------------</p>
+          </div>
+        </ion-card-header>
+        <!--  <div class="dropdown" >
+          <i class="fa fa-ellipsis-v" aria-hidden="true" id="dropbtn"></i>
+          <div class="dropdown-content">
+            <a routerLink="">Edit</a>
+            <a >Deactive</a>
+          </div>
+        </div> -->
+
+        <ion-card-content>
+          {{text.product}}
+        </ion-card-content>
+
+        <ion-card-content>
+          {{text.data}} -- {{text.Quantity}}
+        </ion-card-content>
+        <ion-button fill="solid" shape="round" class="place" (click)="bidById(text)">View Bid</ion-button>
+        <ion-card-title style="float: right; margin-top: -53px;">₹ {{text.expectedPrice}}</ion-card-title>
+      </ion-card>
+    </div>
+    <div *ngIf="item.length ==0">
+      <img src="https://5.imimg.com/data5/SF/YX/MY-2496828/carton-corrugated-box-500x500.jpg"
+        style="height: 70px; width: 70px;">
+    </div>
+    <br>
+    <h3 align="center">Post load to book live loads and use directory</h3>
+    <br>
+  </div>
+
 
 </ion-content>
-<ion-button class="postLoad" routerLink="/attach-new-load" expand="full">Post Load</ion-button>
+<ion-button class="postLoad" routerLink="/attach-new-load" expand="full" shape="round">Post Load</ion-button>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+      <ion-icon name="arrow-back-sharp" routerLink="/tabs/tab1" style="font-size: 30px;"></ion-icon>
+      <ion-title>View Bid</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<br>
+<ion-card-subtitle style="font-size:larger; font-weight: bold; margin-right: 10px;">My Bids :</ion-card-subtitle>
+
+<ion-content>
+  <ion-card >
+    <ion-card-header>
+      <ion-card-subtitle>Expected Price:</ion-card-subtitle>
+      <ion-card-title>₹ {{bids.expectedPrice}} -/</ion-card-title>
+      <p>-----------------------------------------------------------------------</p>
+    </ion-card-header>
+    <ion-card-content>
+      <p style="font-size: larger; font-weight: bolder; ">{{bids.OriginLocation}} -- {{bids.DestinationLocation}}
+      </p>
+      <p style="font-size: large; font-weight: bold; "> {{bids.data}} -- {{bids.Quantity}} Tons</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="bid">
+    
+    <ion-card-header>
+    
+     <ion-card-subtitle style="font-size:larger; font-weight: bold; color: white;" >Bids</ion-card-subtitle>
+     
+   </ion-card-header>
+  </ion-card>
+  <br>
+
+  <ion-card style="height: 110px;width: 394px;">
+    <ion-chip style="float: right;">
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>Driver</ion-label>
+    </ion-chip>
+
+    <ion-card-subtitle>Their new Price:</ion-card-subtitle>
+    <ion-card-title>₹ {{bids.bids}} -/</ion-card-title>
+    <br>
+    <ion-button fill="clear" style="float: right; color: green;">Accept</ion-button>
+    <ion-button fill="clear" style="float: right; color: grey; " shape="round">Negotiate</ion-button>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+      <ion-icon name="arrow-back-sharp" routerLink="/tabs/tab2" style="font-size: 30px;"></ion-icon>
+      <ion-title>Place Bid</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Expected Price:</ion-card-subtitle>
+      <ion-card-title>₹ {{objects.expectedPrice}} -/</ion-card-title>
+      <p>-----------------------------------------------------------------------</p>
+    </ion-card-header>
+    <ion-card-content>
+      <p style="font-size: larger; font-weight: bolder; ">{{objects.OriginLocation}} -- {{objects.DestinationLocation}}
+      </p>
+      <p style="font-size: large; font-weight: bold; "> {{objects.data}} -- {{objects.Quantity}} Tons</p>
+    </ion-card-content>
+  </ion-card>
+  <div >
+    <h1>{{finalss}}</h1>
+  </div>
+</ion-content>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Bidding actions</ion-card-title>
+
+  </ion-card-header>
+
+  <ion-card-content>
+    Negotiate the bid rate or accept and proceed with the transactiom
+  </ion-card-content>
+
+
+  <!-- <ion-button fill="clear" style="text-align:center; color: red; float: left;">Reject</ion-button> -->
+  <ion-button fill="clear" style="float: right; color: green;">Accept</ion-button>
+</ion-card>
+<ion-button id="open-modal" shape="round" class="next">Negotiate</ion-button>
+<ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]" handleBehavior="cycle">
+  <ng-template>
+    <ion-content class="ion-padding">
+      <div class="ion-margin-top">
+        <ion-label>
+          <ion-item fill="outline">
+            <ion-label position="floating">Your Bidding price</ion-label>
+            <ion-input placeholder="Enter new Price"[(ngModel)]="bidPrice"></ion-input>
+          </ion-item>
+          <br>
+          <ion-button expand="full" class="next" shape="round" (click)="placeBid(bidPrice)">Negotiate</ion-button>
+        </ion-label>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

@@ -14,6 +14,23 @@ const routes: Routes = [
     path: 'attach-new-load',
     loadChildren: () => import('./attach-new-load/attach-new-load.module').then( m => m.AttachNewLoadPageModule)
   },
+  {
+    path: 'edit-page',
+    loadChildren: () => import('./edit-page/edit-page.module').then( m => m.EditPagePageModule)
+  },
+  {
+    path: 'place-bid',
+    loadChildren: () => import('./place-bid/place-bid.module').then( m => m.PlaceBidPageModule)
+  },
+  {
+    path: 'load-details',
+    loadChildren: () => import('./load-details/load-details.module').then( m => m.LoadDetailsPageModule)
+  },
+  {
+    path: 'view-bid',
+    loadChildren: () => import('./view-bid/view-bid.module').then( m => m.ViewBidPageModule)
+  },
+  
  
 ];
 @NgModule({

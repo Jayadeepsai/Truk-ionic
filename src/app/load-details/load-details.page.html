@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+      <ion-icon name="arrow-back-sharp" routerLink="/tabs/tab1" style="font-size: 30px;"></ion-icon>
+      <ion-title>Load Details</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<br>
+
+<ion-content>
+  <ion-card class="card">
+    <img
+      src="https://img.freepik.com/premium-vector/delivery-truck-with-many-box-flat-cartoon-illustration_133260-794.jpg" />
+    <ion-card-header>
+      <ion-card-title>{{objects.OriginLocation}} -- {{objects.DestinationLocation}}</ion-card-title>
+      <ion-card-subtitle>{{objects.isActive}}</ion-card-subtitle>
+    </ion-card-header>
+    <div class="container">
+      <h5>Mobile Number :{{objects.Number}}</h5>
+      <h5>Vehicle :{{objects.data}}</h5>
+      <h5>Load Quantity : {{objects.Quantity}} Tons</h5>
+      <h5>Expected price: ₹ {{objects.expectedPrice}} -/</h5>
+      <h5>Date :{{objects.date}}</h5>
+      <h5>Type Of Pay :{{objects.typeOfPay}}</h5>
+      <p>------------------------------------------------------------------------------</p>
+    </div>
+    
+    <ion-card-content>
+      Your load will be handled carefully
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
