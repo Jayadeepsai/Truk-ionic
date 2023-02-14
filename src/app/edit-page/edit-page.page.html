@@ -33,6 +33,50 @@
                 [(ngModel)]="real.DestinationLocation"></ion-input>
             </ion-item>
 
+            <div class="form-group">
+              <div class="form-control">
+               
+                <ion-select placeholder="Select State" [multiple]="true" [(ngModel)]="real.state" formControlName="state">
+                  <ion-select-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</ion-select-option>
+                  <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
+                  <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
+                  <ion-select-option value="Assam">Assam</ion-select-option>
+                  <ion-select-option value="Bihar">Bihar</ion-select-option>
+                  <ion-select-option value="Chandigarh">Chandigarh</ion-select-option>
+                  <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
+                  <ion-select-option value="Dadra Nagar Haveli and Daman Diu">Dadra Nagar Haveli and Daman Diu</ion-select-option>
+                  <ion-select-option value="Goa">Goa</ion-select-option>
+                  <ion-select-option value="Gujarat">Gujarat</ion-select-option>
+                  <ion-select-option value="Haryana">Haryana</ion-select-option>
+                  <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
+                  <ion-select-option value="Jammu and Kashmir">Jammu and Kashmir</ion-select-option>
+                  <ion-select-option value="Jharkhand">Jharkhand</ion-select-option>
+                  <ion-select-option value="Karnataka">Karnataka</ion-select-option>
+                  <ion-select-option value="Kerala">Kerala</ion-select-option>
+                  <ion-select-option value="Lakshadweep">Lakshadweep</ion-select-option>
+                  <ion-select-option value="Ladakh">Ladakh</ion-select-option>
+                  <ion-select-option value="Madhya Pradesh">Madhya Pradesh</ion-select-option>
+                  <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
+                  <ion-select-option value="Manipur">Manipur</ion-select-option>
+                  <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
+                  <ion-select-option value="Mizoram">Mizoram</ion-select-option>
+                  <ion-select-option value="Nagaland">Nagaland</ion-select-option>
+                  <ion-select-option value="National Capital Territory (Delhi)">National Capital Territory (Delhi)</ion-select-option>
+                  <ion-select-option value="Odisha">Odisha</ion-select-option>
+                  <ion-select-option value="Puducherry">Puducherry</ion-select-option>
+                  <ion-select-option value="Punjab">Punjab</ion-select-option>
+                  <ion-select-option value="Rajasthan">Rajasthan</ion-select-option>
+                  <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
+                  <ion-select-option value="Telangana">Telangana</ion-select-option>
+                  <ion-select-option value="Tripura">Tripura</ion-select-option>
+                  <ion-select-option value="Uttar Pradesh">Uttar Pradesh</ion-select-option>
+                  <ion-select-option value="Uttarakhand">Uttarakhand</ion-select-option>
+                  <ion-select-option value="West Bengal">West Bengal</ion-select-option>
+  
+                </ion-select>
+              </div>
+            </div>
+
             <ion-item>
               <ion-label>User Number: </ion-label>
               <ion-input type="text" placeholder="Enter Mobile Number" formControlName="Number"

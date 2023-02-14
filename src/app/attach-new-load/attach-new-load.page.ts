@@ -22,6 +22,7 @@ export class AttachNewLoadPage implements AfterViewInit {
   length: any;
   breadth: any;
   height: any;
+  state:any;
 
 
   map: any;
@@ -178,6 +179,7 @@ export class AttachNewLoadPage implements AfterViewInit {
     var body = {
       DestinationLocation: this.DestinationLocation,
       OriginLocation: this.OriginLocation,
+      state: this.state,
       Number: this.Number,
       date: this.date,
       product: this.product,

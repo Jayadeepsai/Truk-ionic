@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-bid.page.scss'],
 })
 export class ViewBidPage implements OnInit {
-bids:any;
+
 item: any = [];
+bids:any=[];
   constructor() { }
 
   ngOnInit() {

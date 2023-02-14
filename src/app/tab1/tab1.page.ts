@@ -121,7 +121,7 @@ body={
         this.router.navigate(["view-bid"])
        }
 
-
+ 
        toggle(isActive:any){
         this.isactive=isActive
         this.activeGet()

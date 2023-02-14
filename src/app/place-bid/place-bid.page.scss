@@ -1,3 +1,46 @@
 .next{
     --background: #F58E26;
 }
+
+
+.message{
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    white-space: pre-wrap;
+    font-size: 20px;
+ }
+ 
+ .other-message{
+     background: rgb(97, 107, 247);
+     color: #fff;
+     font-size: 20px;
+ }
+ 
+ .my-message{
+     background: #f58e26;
+     color: #fff;
+     font-size: 20px;
+ }
+ 
+ .time{
+     color: #dfdfdf;
+     float: right;
+     font-size: small;
+ }
+ 
+ .msg-btn{
+ --padding-start:0.5rem;
+ --padding-end:1rem;
+ }
+ 
+ .input{
+     width: 100%;
+     border: 1px solid beige;
+     border-radius: 10px;
+     background: #fff;
+     resize: none;
+     padding-left: 10px;
+     padding-right: 10px;
+ 
+ }
