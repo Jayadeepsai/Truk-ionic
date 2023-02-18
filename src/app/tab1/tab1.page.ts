@@ -118,7 +118,7 @@ body={
      bidById(bid: any) {
       //   console.log(load)
         localStorage.setItem("viewBid", JSON.stringify(bid));
-        this.router.navigate(["view-bid"])
+        this.router.navigate(["all-bids"])
        }
 
  

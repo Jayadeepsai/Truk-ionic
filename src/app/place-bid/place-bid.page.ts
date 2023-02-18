@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {  Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-place-bid',
@@ -9,6 +11,8 @@ import { IonContent } from '@ionic/angular';
 export class PlaceBidPage implements OnInit {
   item: any = []; 
   bids:any=[];
+  show:boolean | undefined;
+  hide:boolean | undefined
   _id: any;
 id:any
   OriginLocation:any;
@@ -20,92 +24,108 @@ id:any
   objects: any;
   bidPrice:any;
   finalss:any;
-
+  placebidID:any
 
   newMsg: any;
   created!: number;
   date: any
 
-  currentUserType="Shipper";
+  currentUserType="Agent/Broker";
   
 
-  BidActivity= [
-    {
-        "price": 2000,
-        "userNo": 6207196726,
-        "userType": "Agent",
-        "time": 1676008124890
-    },
-    {
-        "price": 1504,
-        "userNo": 123456,
-        "userType": "Shipper",
-        "time": 1676008165759
-    },
-    {
-        "price": 27,
-        "userNo": 6207196726,
-        "userType": "Agent",
-        "time": 1676008214136
-    },
-    {
-        "price": 1507,
-        "userNo": 123456,
-        "userType": "Shipper",
-        "time": 1676008235850
-    },
-    {
-        "price": 200,
-        "userNo": 6207196726,
-        "userType": "Agent",
-        "time": 1676008244533
-    },
-    {
-        "price": 1587,
-        "userNo": 123456,
-        "userType": "Shipper",
-        "time": 1676008250581
-    
-    }
-]
+  
+  bidDetails: any;
+  NegoPrice: any;
+  num: any;
+  insidebidarray: any;
+  final: any;
+  finalaccepted: any;
+  insidebids: any;
+  insidearray: any;
+  insideBidactivity: any;
+  finalresult: any;
+  finalobjectprice: any;
+  gettenprice: any;
+  finalAcceptforBid: any;
 
-  constructor() { }
+  constructor(private route:Router,
+    private location:Location) { }
 
   @ViewChild(IonContent)
   content!: IonContent;
 
   ngOnInit():void{
+   this.placebidID= this.location.getState()
+      
+   console.log(this.placebidID.profile)
+   
 
     this.date = new Date().getTime()
     
    this.objects = JSON.parse(localStorage.getItem("loadBy") || '{}');
    console.log(this.objects)
+this.getfullarray()
+  
+//this.finalAcceptforBid =JSON.parse(localStorage.getItem("finalAcceptforBid") ||'{}')
+   // console.log(this.finalAcceptforBid)
+  }
 
-    fetch("http://localhost:3000/quotes/quoteByid/"+ this.objects._id, {
-      method: 'GET',
+  getfullarray(){
+
+    var query ={
+     "_id": this.objects._id,
+      "mobileNo":8762345674
+    }
+    fetch("http://localhost:3000/quotes/showAgentSideBidConversation", {
+      method: 'POST',
       headers: {
         "access-Control-Allow-Origin": "*",
-
+        "Content-Type": 'application/json'
       },
+      body:JSON.stringify(query)
     })
       .then(response => response.json())
       .then(result => {
-        console.log(result)
-        for(let i=0; i<result.length;i++){
-      var final= result[i]
+        console.log(result) //getting full array
+        if(result.bids.length === 0){
+          this.show=true
+          this.hide=false
+          
         }
-          this.item = final.bids
-          for(let i=0; i<this.item.length;i++){
-            this.finalss= JSON.stringify(this.item[i])
+       
+        for(let i=0; i<result.bids.length;i++){
+      this.final= result.bids[i]
+      console.log(this.final) //inside an array
+        }
+        
+          this.item = this.final.quoteBid //go inside bids array
+          console.log(this.item)
+          for(let i=0; i<this.item.BidActivity.length;i++){ //
+            this.gettenprice =this.item.BidActivity[i]
+            console.log(this.gettenprice)
+
+
+            this.finalss= this.item.BidActivity
+            console.log(this.finalss)
+            this.num =this.item.BidActivity[i].userNo
               }
-        console.log(this.finalss)
+        console.log(this.finalss.length)
+        
+        if(this.finalss.length > 0){
+          this.hide=true
+          this.show= false
+        }
+
+        for(let i=0; i<this.finalss.length;i++){
+          this.insidebidarray= this.finalss[i]
+          console.log(this.insidebidarray)
+            }
+       
       }
 
       ).catch(err =>
         console.log(err))
   }
-
-  
   
 
   placeBid(bidPrice:any){
@@ -122,7 +142,7 @@ id:any
 console.log(bidPrice)
    var body = {
 
-    "_id":"63e0c94aa00abe8498d006ee",
+    "_id":this.placebidID.profile,
     "mobileNo":62071967001,
     "Bidprice":this.bidPrice
 
@@ -155,7 +175,7 @@ console.log(bidPrice)
 
 
  //send mes
- sendMessage() {
+ /* sendMessage() {
   this.BidActivity.push({
     price: 12,
     userNo: 123456,
@@ -167,6 +187,150 @@ console.log(bidPrice)
   setTimeout(() => {
     this.content.scrollToBottom(200);
   })
-}
+} */
+
+acceptBid(){
+  
+  var body = {
+
+  
+    "_id":this.placebidID.profile,
+    "mobileNo":8762345674,  //give login agent mobile number
+    "userType":"Agent/Broker",
+    "Bidprice":this.objects.expectedPrice,
+    "initialAccept" :"Accepted"
+
+   }
+
+  fetch("http://localhost:3000/quotes/placeBid", {
+    method: 'post',
+    headers: {
+      "access-Control-Allow-Origin": "*",
+      "Content-Type": 'application/json'
+    },
+    body: JSON.stringify(body),
+
+  })
+    .then(response => response.json())
+    .then(async result => {
+      console.log(result)
+      
+      
+
+
+    }
+
+    ).catch(err =>
+      console.log(err))
 
 }
+
+initialBid(){
+  console.log("working")
+  console.log(this.newMsg)
+  var body = {
+
+  
+    "_id":this.placebidID.profile,
+    "mobileNo": 8762345674, //agent mobile number from login
+    "userType":"Agent/Broker",
+    "Bidprice":this.newMsg
+  
+   }
+
+  fetch("http://localhost:3000/quotes/placeBid", {
+    method: 'post',
+    headers: {
+      "access-Control-Allow-Origin": "*",
+      "Content-Type": 'application/json'
+    },
+    body: JSON.stringify(body),
+
+  })
+    .then(response => response.json())
+    .then(async result => {
+      console.log(result)
+      
+      
+
+
+    }
+
+    ).catch(err =>
+      console.log(err))
+
+}
+
+negotiate(){
+  var body = {
+
+  
+    "_id":this.placebidID.profile,
+    "mobileNo":this.num,
+    "userNo":this.objects.Number,
+    "userType":"Agent/Broker",
+    "price":this.NegoPrice
+  
+   }
+
+  fetch("http://localhost:3000/quotes/updateBids", {
+    method: 'post',
+    headers: {
+      "access-Control-Allow-Origin": "*",
+      "Content-Type": 'application/json'
+    },
+    body: JSON.stringify(body),
+
+  })
+    .then(response => response.json())
+    .then(async result => {
+      console.log(result)
+      
+      
+
+
+    }
+
+    ).catch(err =>
+      console.log(err))
+
+}
+acceptBidForFinal(){
+  //this.getfullarray()
+  var body = {
+  
+    
+    "_id":this.objects._id,
+    "mobileNo":this.item.mobileNo,
+"isAgentAccepted":true
+
+  
+   }
+   console.log(this.bids._id)
+console.log(this.item.mobileNo)
+
+  fetch("http://localhost:3000/quotes/finalacceptbyagent", {
+    method: 'post',
+    headers: {
+      "access-Control-Allow-Origin": "*",
+      "Content-Type": 'application/json'
+    },
+    body: JSON.stringify(body),
+
+  })
+    .then(response => response.json())
+    .then(async result => {
+      console.log(result)
+      
+      
+
+
+    }
+
+    ).catch(err =>
+      console.log(err))
+  }
+
+}
+
+

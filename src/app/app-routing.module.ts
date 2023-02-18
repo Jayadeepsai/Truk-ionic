@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'view-bid',
     loadChildren: () => import('./view-bid/view-bid.module').then( m => m.ViewBidPageModule)
   },
+  {
+    path: 'all-bids',
+    loadChildren: () => import('./all-bids/all-bids.module').then( m => m.AllBidsPageModule)
+  },
   
  
 ];

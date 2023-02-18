@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+      <ion-icon name="arrow-back-sharp" routerLink="/tabs/tab1" style="font-size: 30px;"></ion-icon>
+      <ion-title>All bids</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let data of allbids ">
+    <ion-card-header>
+      <ion-card-title>You have a new bid from:{{data.mobileNo}}</ion-card-title>
+      
+      <ion-card-subtitle>Final Price:{{data.tentativefinalPrice}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+    
+    </ion-card-content>
+  
+    <ion-button fill="clear" routerLink="/view-bid">Open</ion-button>
+    
+  </ion-card>
+</ion-content>
