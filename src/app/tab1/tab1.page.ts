@@ -48,7 +48,8 @@ body={
 
 
   ngOnInit():void{
-    this.get()
+    
+   this.toggle(this.isActive="Active")
   }
   get() {
     fetch("http://localhost:3000/quotes/allQuotes", {
@@ -123,6 +124,16 @@ body={
 
  
        toggle(isActive:any){
+        this.isactive=isActive
+        this.activeGet()
+        console.log(isActive)
+       }
+       toggles(isActive:any){
+        this.isactive=isActive
+        this.activeGet()
+        console.log(isActive)
+       }
+       toggless(isActive:any){
         this.isactive=isActive
         this.activeGet()
         console.log(isActive)

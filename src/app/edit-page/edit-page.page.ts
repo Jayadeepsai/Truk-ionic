@@ -56,7 +56,8 @@ export class EditPagePage implements OnInit {
       length: [''],
       breadth: [''],
       height: [''],
-      state:[''],
+      pickupState:[''],
+      dropupState:[''],
       data: ['']
     })
   }

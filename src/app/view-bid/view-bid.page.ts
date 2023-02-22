@@ -21,6 +21,7 @@ currentUserType="Shipper";
   goinsidebids: any;
   goinsidetenprice: any;
   finalAgentAccept: any;
+  products: any;
   constructor() { }
 
   ngOnInit() {
@@ -126,7 +127,8 @@ console.log(this.bidnumber)
     
       "_id":this.bids._id,
       "mobileNo":this.bidnumber,
-"isShipperAccepted":true
+"isShipperAccepted":true,
+
   
     
      }
@@ -153,7 +155,38 @@ console.log(this.bidnumber)
   
       ).catch(err =>
         console.log(err))
-   
+       this.acceptBidStatus()
   }
 
+  acceptBidStatus(){
+
+    var data={
+      isActive:"Completed"
+    }
+   // console.log(data)
+
+    console.log(this.bids._id)
+    fetch("http://localhost:3000/postLoad/loadDeactivate/" + this.bids._id, {
+      method: 'PUT',
+      headers: {
+        "access-Control-Allow-Origin": "*",
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(data),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
+
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result),
+
+          this.products = JSON.parse(result)  //it  runs $parse automatically when it runs the $digest loop, basically $parse is the way angular evaluates expressions
+
+     
+        window.location.reload()  // reloading window
+
+      }
+
+      ).catch(err =>
+        console.log(err))
+}
 }

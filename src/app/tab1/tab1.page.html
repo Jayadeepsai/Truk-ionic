@@ -43,22 +43,48 @@
     <br>
 
 
-  <!-- <ion-card-subtitle style="font-size:larger; font-weight: bold; float: left;">Loads:</ion-card-subtitle> -->
-    <ion-card-header>
+    <!-- <ion-card-subtitle style="font-size:larger; font-weight: bold; float: left;">Loads:</ion-card-subtitle> -->
+    <!-- <ion-card-header>
         <div class="dropdown">
           <ion-icon name="filter" style="float: right; font-size: 28px;" id="dropbtn"></ion-icon>
           <div class="dropdown-content " style="float: right;">
 
-
+            <ion-segment [scrollable]="true" value="heart">
+              <ion-segment-button value="home">
+                <ion-icon name="home"></ion-icon>
+              </ion-segment-button>
+              <ion-segment-button value="heart">
+                <ion-icon name="heart"></ion-icon>
+              </ion-segment-button>
+              <ion-segment-button value="pin">
+                <ion-icon name="pin"></ion-icon>
+              </ion-segment-button>
+            </ion-segment>
             <a (click)="toggle('Active')">Active</a>
             <a (click)="toggle('Deactive')">Deactive</a>
+            <a (click)="toggle('Completed')">Completed</a>
             
           </div>
         </div>
       
 
     </ion-card-header>
-  
+   -->
+
+
+    <ion-segment [scrollable]="true" value="home">
+      <ion-segment-button value="home" (click)="toggle('Active')">
+        <ion-label>Active</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="heart" (click)="toggles('Deactive')">
+        <ion-label>Deactive</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pin" (click)="toggless('Completed')">
+        <ion-label>Completed</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+
 
 
 
@@ -76,11 +102,15 @@
               <a (click)="loadDetails(text)">More Details</a>
             </div>
             <p style="font-size: 17px;">{{text.isActive}}</p>
-            <ion-img
-              src="https://media.istockphoto.com/id/1150981488/vector/brown-paper-box.jpg?b=1&s=170667a&w=0&k=20&c=ExZoHBgVStsXWmQiQw4hVlN-EvhEec-QrqhpXiym2og="
-              style="height: 70px; width: 70px;" float="left"></ion-img>
-            <ion-card-title>{{text.OriginLocation}} -- {{text.DestinationLocation}}</ion-card-title>
-            <ion-card-subtitle>Posted On {{text.date}} |Expires in 24hrs</ion-card-subtitle>
+            <div>
+              <ion-img
+                src="https://media.istockphoto.com/id/1150981488/vector/brown-paper-box.jpg?b=1&s=170667a&w=0&k=20&c=ExZoHBgVStsXWmQiQw4hVlN-EvhEec-QrqhpXiym2og="
+                style="height: 20%; width: 20%;" float="left"></ion-img>
+              <div style="margin-top: -4rem; margin-left: 76px;">
+                <ion-card-title>{{text.OriginLocation}} -- {{text.DestinationLocation}}</ion-card-title>
+                <ion-card-subtitle>Posted On {{text.date}}</ion-card-subtitle>
+              </div>
+            </div>
             <p>-----------------------------------------------------------------------</p>
           </div>
         </ion-card-header>
@@ -100,7 +130,7 @@
           {{text.data}} -- {{text.Quantity}}
         </ion-card-content>
         <ion-button fill="solid" shape="round" class="place" (click)="bidById(text)">View Bids</ion-button>
-        <ion-card-title style="float: right; margin-top: -53px;">₹ {{text.expectedPrice}}</ion-card-title>
+        <ion-card-title style="float: right; margin-top: -53px;">₹ {{text.expectedPrice}}-/ </ion-card-title>
       </ion-card>
     </div>
     <div *ngIf="item.length ==0">
