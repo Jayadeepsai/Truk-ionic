@@ -36,7 +36,7 @@
             <div class="form-group">
               <div class="form-control">
                
-                <ion-select placeholder="Select Pickup State" [multiple]="true" [(ngModel)]="real.pickupState" formControlName="pickupState">
+                <ion-select placeholder="Select Pickup State"  [(ngModel)]="real.pickupState" formControlName="pickupState">
                   <ion-select-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</ion-select-option>
                   <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
                   <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
@@ -82,7 +82,7 @@
             <div class="form-group">
               <div class="form-control">
                
-                <ion-select placeholder="Select Dropup State" [multiple]="true" [(ngModel)]="real.dropupState" formControlName="dropupState">
+                <ion-select placeholder="Select Dropup State"  [(ngModel)]="real.dropupState" formControlName="dropupState">
                   <ion-select-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</ion-select-option>
                   <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
                   <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
@@ -293,9 +293,9 @@
             <div class="form-group">
               <div class="form-control">
                 <ion-label></ion-label>
-                <ion-select placeholder="Type of Payment to Lorry Owner" [multiple]="true" [(ngModel)]="real.typeOfPay"  formControlName="typeOfPay">
-                  <ion-select-option value="Advance">Advance</ion-select-option>
-                  <ion-select-option value="To Pay">To Pay</ion-select-option>
+                <ion-select placeholder="Type of Payment to Lorry Owner"  [(ngModel)]="real.typeOfPay"  formControlName="typeOfPay">
+                  <ion-select-option value="Online">Online</ion-select-option>
+                  <ion-select-option value="Offline">Offline</ion-select-option>
 
                 </ion-select>
               </div>

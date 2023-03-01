@@ -23,6 +23,7 @@ export class Tab2Page implements OnInit {
   AttendenceArray: any;
   tabkey: any;
   tabValue: any;
+  isactive:any;
   
 
 
@@ -36,20 +37,37 @@ export class Tab2Page implements OnInit {
 
   constructor(private router:Router) { }
   ngOnInit(): void {
-    this.get()
+    this.post()
   }
-  get() {
-    fetch("http://localhost:3000/quotes/allQuotes", {
-      method: 'GET',
+  toggle(isActive:any){
+    this.isactive=isActive
+    this.post()
+    console.log(isActive)
+   }
+   
+   toggless(isActive:any){
+    this.isactive=isActive
+    this.completedGet()
+    console.log(isActive)
+   }
+
+  post() {
+    var body={
+      mobileNo:987654323,
+      isActive:"Active"
+    }
+    fetch("http://localhost:3000/quotes/LoadMarket", {
+      method: 'POST',
       headers: {
         "access-Control-Allow-Origin": "*",
-
+        "Content-Type": 'application/json'
       },
+      body: JSON.stringify(body),
     })
       .then(response => response.json())
       .then(result => {
         console.log(result),
-          this.item = result.Loads
+          this.item = result.item
         console.log(this.item)
       }
 
@@ -58,15 +76,38 @@ export class Tab2Page implements OnInit {
   }
 
 
+   completedGet(){
+    var body={
+      mobileNo:987654323,
+      isActive:"Completed"
+    }
+    fetch("http://localhost:3000/quotes/LoadMarket", {
+      method: 'POST',
+      headers: {
+        "access-Control-Allow-Origin": "*",
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(body),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result),
+          this.item = result.item
+        console.log(this.item)
+      }
 
-   loadById(load: any) {
-  //   console.log(load)
-    localStorage.setItem("loadBy", JSON.stringify(load));
-    this.router.navigate(['place-bid'], 
-        { state: { profile: load._id }});
-    //this.router.navigate(["place-bid"])
-   }
-   
-
+      ).catch(err =>
+        console.log(err))
+  }
+  
+  
+  
+  loadById(load: any) {
+    //   console.log(load)
+      localStorage.setItem("loadBy", JSON.stringify(load));
+      this.router.navigate(['place-bid'], 
+          { state: { profile: load._id }});
+      //this.router.navigate(["place-bid"])
+     }
 
 }

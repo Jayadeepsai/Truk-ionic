@@ -99,7 +99,7 @@ body={
       .then(result => {
         console.log(result),
 
-          this.products = JSON.parse(result)  //it  runs $parse automatically when it runs the $digest loop, basically $parse is the way angular evaluates expressions
+          this.products = result //it  runs $parse automatically when it runs the $digest loop, basically $parse is the way angular evaluates expressions
 
      
         window.location.reload()  // reloading window
@@ -130,23 +130,27 @@ body={
        }
        toggles(isActive:any){
         this.isactive=isActive
-        this.activeGet()
+        this.deActiveGet()
         console.log(isActive)
        }
        toggless(isActive:any){
         this.isactive=isActive
-        this.activeGet()
+        this.completedGet()
         console.log(isActive)
        }
 
        activeGet(){
         console.log(this.isactive)
-    fetch("http://localhost:3000/quotes/loadsByStatus/" + this.isactive, {
-      method: 'GET',
+        var body={
+          Number: "12345678", isActive:"Active" 
+        }
+    fetch("http://localhost:3000/quotes/loadsByStatusAndNumber" , {
+      method: 'POST',
       headers: {
         "access-Control-Allow-Origin": "*",
-
+        "Content-Type": 'application/json'
       },
+      body: JSON.stringify(body),
     })
       .then(response => response.json())
       .then(result => {
@@ -158,6 +162,63 @@ body={
       ).catch(err =>
         console.log(err))
   }
+
+
+
+  
+  deActiveGet(){
+    console.log(this.isactive)
+    var body={
+      Number: "12345678", isActive:"Deactive" 
+    }
+fetch("http://localhost:3000/quotes/loadsByStatusAndNumber" , {
+  method: 'POST',
+  headers: {
+    "access-Control-Allow-Origin": "*",
+    "Content-Type": 'application/json'
+  },
+  body: JSON.stringify(body),
+})
+  .then(response => response.json())
+  .then(result => {
+    console.log(result),
+      this.item = result.load
+     console.log(this.item)
+  }
+
+  ).catch(err =>
+    console.log(err))
+}
+
+
+
+completedGet(){
+  console.log(this.isactive)
+  var body={
+    Number: "12345678", isActive:"Completed" 
+  }
+fetch("http://localhost:3000/quotes/loadsByStatusAndNumber" , {
+method: 'POST',
+headers: {
+  "access-Control-Allow-Origin": "*",
+  "Content-Type": 'application/json'
+},
+body: JSON.stringify(body),
+})
+.then(response => response.json())
+.then(result => {
+  console.log(result),
+    this.item = result.load
+   console.log(this.item)
+}
+
+).catch(err =>
+  console.log(err))
+}
+
+
+
+
        }
 
 
