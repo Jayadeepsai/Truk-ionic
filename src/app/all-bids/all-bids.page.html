@@ -7,19 +7,36 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-card class="bid">
+
+  <ion-card-header>
+
+    <ion-card-subtitle style="font-size:larger; font-weight: bold; color: white;">Bids</ion-card-subtitle>
+
+  </ion-card-header>
+</ion-card>
+
 <ion-content>
-  <ion-card *ngFor="let data of allbids ">
+  <ion-card class="allBids" *ngFor="let data of allbids ">
     <ion-card-header>
-      <ion-card-title>You have a new bid from:{{data.mobileNo}}</ion-card-title>
+      <ion-card-title>Their new price</ion-card-title>
+      <ion-card-title>₹{{data.tentativefinalPrice}}/- Fixed</ion-card-title>
+      <ion-chip style="margin-left: 224px;margin-top: -89px;">
+        <ion-avatar>
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label>{{data.mobileNo}}</ion-label>    <!--Here it should be the user name of who place the bid-->
+        
+      </ion-chip>
       
-      <ion-card-subtitle>Final Price:{{data.tentativefinalPrice}}</ion-card-subtitle>
+      
     </ion-card-header>
   
     <ion-card-content>
     
     </ion-card-content>
   
-    <ion-button fill="clear" routerLink="/view-bid">Open</ion-button>
+    <ion-button style="margin-top: -47px;margin-left: 21px;" fill="outline" shape="round" routerLink="/view-bid">Open</ion-button>
     
   </ion-card>
 </ion-content>

@@ -1,0 +1,23 @@
+
+
+.bb{
+    --background: #f58e26;
+  }
+  
+  ion-card-header.ios {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+  
+  
+  .load{
+    margin-left: 140px;
+    float: right;
+    display: inline;
+  }
+  
+  .column {
+    float: left;
+    width: 47.33%;
+    padding: 5px;
+  }

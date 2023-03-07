@@ -147,7 +147,7 @@ console.log(this.bidnumber)
       .then(response => response.json())
       .then(async result => {
         console.log(result)
-        
+        this.acceptBidStatus()
         
   
   
@@ -155,7 +155,7 @@ console.log(this.bidnumber)
   
       ).catch(err =>
         console.log(err))
-       this.acceptBidStatus()
+       
   }
 
   acceptBidStatus(){

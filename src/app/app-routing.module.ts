@@ -34,6 +34,14 @@ const routes: Routes = [
     path: 'all-bids',
     loadChildren: () => import('./all-bids/all-bids.module').then( m => m.AllBidsPageModule)
   },
+  {
+    path: 'mytruks',
+    loadChildren: () => import('./mytruks/mytruks.module').then( m => m.MytruksPageModule)
+  },
+  {
+    path: 'add-truks',
+    loadChildren: () => import('./add-truks/add-truks.module').then( m => m.AddTruksPageModule)
+  },
   
  
 ];

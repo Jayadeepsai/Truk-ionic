@@ -47,6 +47,7 @@ id:any
   finalobjectprice: any;
   gettenprice: any;
   finalAcceptforBid: any;
+  products: any;
 
   constructor(private route:Router,
     private location:Location) { }
@@ -131,14 +132,6 @@ this.getfullarray()
   placeBid(bidPrice:any){
     //This will be called only foe first time bidding
 
-   /*  {
-    
-      "_id":"63e0a33c4081a10c3853b0de",
-      "mobileNo":62071967001,
-      "Bidprice":4000
-   
-   } */
-
 console.log(bidPrice)
    var body = {
 
@@ -173,21 +166,41 @@ console.log(bidPrice)
 
 }
 
+inTransit(){
+  
+  var data={
+    isActive:"In-Progress"
+  }
+ // console.log(data)
 
- //send mes
- /* sendMessage() {
-  this.BidActivity.push({
-    price: 12,
-    userNo: 123456,
-    time: this.date,
-    userType:"Shipper"
-  });
+  console.log(this.objects._id)
+  fetch("http://localhost:3000/postLoad/loadDeactivate/" + this.objects._id, {
+    method: 'PUT',
+    headers: {
+      "access-Control-Allow-Origin": "*",
+      "Content-Type": 'application/json'
+    },
+    body: JSON.stringify(data),        // JSON Means An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
 
-  this.newMsg = '';
-  setTimeout(() => {
-    this.content.scrollToBottom(200);
   })
-} */
+    .then(response => response.json())
+    .then(result => {
+      console.log(result),
+      
+        this.products = JSON.parse(result)  //it  runs $parse automatically when it runs the $digest loop, basically $parse is the way angular evaluates expressions
+        
+   
+      
+
+    }
+
+    ).catch(err =>
+      console.log(err))
+}
+
+
+
+ 
 
 acceptBid(){
   
@@ -214,7 +227,7 @@ acceptBid(){
     .then(response => response.json())
     .then(async result => {
       console.log(result)
-      
+      this.inTransit()
       
 
 
@@ -250,7 +263,7 @@ initialBid(){
     .then(response => response.json())
     .then(async result => {
       console.log(result)
-      
+      this.inTransit()
       
 
 
@@ -306,7 +319,7 @@ acceptBidForFinal(){
 
   
    }
-   console.log(this.bids._id)
+   //console.log(this.bids._id)
 console.log(this.item.mobileNo)
 
   fetch("http://localhost:3000/quotes/finalacceptbyagent", {

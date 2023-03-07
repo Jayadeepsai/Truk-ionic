@@ -10,7 +10,7 @@
 <ion-card-subtitle style="font-size:larger; font-weight: bold; margin-right: 10px;">My Bids :</ion-card-subtitle>
 
 <ion-content>
-  <ion-card>
+  <ion-card class="expecPrice">
     <ion-card-header>
       <ion-card-subtitle>Expected Price:</ion-card-subtitle>
       <ion-card-title>₹ {{bids.expectedPrice}} -/</ion-card-title>
@@ -53,70 +53,41 @@
   <ion-grid>
     <ion-row *ngFor="let text of bidActivity">
 
-      <!-- <ion-col size="9" *ngIf="text.userType!== currentUserType" class="message other-message">
-
-        <b text-left>{{text.userType}}</b><br>
-        <b text-left>{{text.price}}</b><br>
+  
+     <ion-col size="8" offset="3" *ngIf="text.userType==currentUserType" class="my-message">
 
 
 
-         <div class="time" text-right><br>
-          {{text.time | date:'short' }}
-        </div> 
-
-      </ion-col> -->
-
-       <ion-col size="9" offset="3" *ngIf="text.userType==currentUserType" class="message my-message">
-
-       
-
-        <b text-left>{{text.userType}}</b><br>
-        <b text-left>{{text.price}}</b><br>
-      </ion-col> 
-   
-
-
-    <!-- <ion-row *ngFor="let text of bidActivity"> -->
-
-      <ion-col size="9" *ngIf="text.userType!== currentUserType" class="message other-message">
-<div *ngIf="text.initialAccept === 'Accepted'">
-      <h3>Bid accepted for : {{text.price}}</h3>
-    </div>
-    <div [hidden]="text.initialAccept === 'Accepted'" >
-      <b>{{text.userType}}::</b><br>
-      <span>{{text.price}}</span><br>
-      <b>PHno -{{text.userNo}}</b>
-      <div class="time" text-right><br>
-        {{text.time | date:'short'}}
-      </div>
-    </div>
-      <!--   <b>{{text.userType}}::</b><br>
-        <span>{{text.price}}</span><br>
-        <b>PHno -{{text.userNo}}</b>
-        <div class="time" text-right><br>
+        <b text-left>{{text.userType}} :</b><br>
+        <b text-left>{{text.price}}</b>
+        <div class="time" style="color: black;" text-right><br>
           {{text.time | date:'short'}}
         </div>
+      </ion-col>
 
 
-         <div class="time" text-right><br>
-          <!-- {{text.time | date:'short' }}
-        </div>  -->
+      <!-- <ion-row *ngFor="let text of bidActivity"> -->
+
+       <ion-col size="7" *ngIf="text.userType!== currentUserType" class="message other-message">
+        <div *ngIf="text.initialAccept === 'Accepted'">
+          <h3>Bid accepted for : {{text.price}}</h3>
+        </div>
+        <div [hidden]="text.initialAccept === 'Accepted'">
+          <b>{{text.userType}} :</b><br>
+          <span>{{text.price}}</span>
+          <!-- <b>PHno -{{text.userNo}}</b> -->
+          <div class="time" style="color: black;" text-right><br>
+            {{text.time | date:'short'}}
+          </div>
+        </div>
+    
 
       </ion-col>
 
-       <!-- <ion-col size="9" offset="3" *ngIf="text.userType==currentUserType" class="message my-message">
-
-        <b>{{text.userType}}::</b><br>
-        <span>{{text.price}}</span><br>
-        <b>PHno -{{text.userNo}}</b>
-        <div class="time" text-right><br>
-          {{text.time | date:'short'}}
-        </div>
-
-      </ion-col>  -->
+      
     </ion-row>
 
-    <!-- </ion-row> -->
+    
   </ion-grid>
 
   <!--<ion-card color="success">
@@ -126,30 +97,30 @@
     </div>
     </ion-card>-->
 
-   
 
-      <ion-card  color="success" *ngIf="finalAgentAccept == true">
-        <div align="center">
-        
-        agent/transporter/fleet accepted bid  for:{{goinsidetenprice}}
-        </div>
-        </ion-card>
-        <ion-card  color="success" *ngIf="goinsidebids == true">
-          <div align="center">
-          
-          You approved for:{{goinsidetenprice}}
-          </div>
-          </ion-card>
 
-      <div *ngIf="goinsidebids == true" align="center" style="margin-top:150px;">
-        <ion-button  shape="round" class="next">PAY NOW</ion-button>
-        </div>
+  <ion-card class="agentAccept"   *ngIf="finalAgentAccept == true">
+    <div align="center">
+
+      Agent/Transporter/Fleet accepted bid for:{{goinsidetenprice}}
+    </div>
+  </ion-card>
+  <ion-card class="shipperAccept" *ngIf="goinsidebids == true">
+    <div align="center">
+
+      You approved for:{{goinsidetenprice}}
+    </div>
+  </ion-card>
+
+  <div *ngIf="goinsidebids == true" align="center" style="margin-top:150px;">
+    <ion-button shape="round" class="next">PAY NOW</ion-button>
+  </div>
 
 </ion-content>
 
 <div [hidden]="goinsidebids == true">
-<ion-button fill="clear" style="float: right; color: green;" (click)="acceptBid()">Accept</ion-button>
-<ion-button id="open-modal" shape="round" class="next">Negotiate</ion-button>
+  <ion-button fill="clear" style="float: right; color: green;" (click)="acceptBid()">Accept</ion-button>
+  <ion-button id="open-modal" shape="round" class="next">Negotiate</ion-button>
 </div>
 
 <ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]" handleBehavior="cycle">

@@ -50,10 +50,15 @@ export class Tab2Page implements OnInit {
     this.completedGet()
     console.log(isActive)
    }
+   togglesss(isActive:any){
+    this.isactive=isActive
+    this.inTransitget()
+    console.log(isActive)
+   }
 
   post() {
     var body={
-      mobileNo:987654323,
+      mobileNo:9876543234,
       isActive:"Active"
     }
     fetch("http://localhost:3000/quotes/LoadMarket", {
@@ -78,7 +83,7 @@ export class Tab2Page implements OnInit {
 
    completedGet(){
     var body={
-      mobileNo:987654323,
+      mobileNo:9876543234,
       isActive:"Completed"
     }
     fetch("http://localhost:3000/quotes/LoadMarket", {
@@ -99,7 +104,32 @@ export class Tab2Page implements OnInit {
       ).catch(err =>
         console.log(err))
   }
-  
+
+
+  inTransitget(){
+var body={
+      mobileNo:9876543234,
+      isActive:"In-Progress"
+    }
+    fetch("http://localhost:3000/quotes/LoadMarket", {
+      method: 'POST',
+      headers: {
+        "access-Control-Allow-Origin": "*",
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(body),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result),
+          this.item = result.item
+        console.log(this.item)
+      }
+
+      ).catch(err =>
+        console.log(err))
+
+  }
   
   
   loadById(load: any) {

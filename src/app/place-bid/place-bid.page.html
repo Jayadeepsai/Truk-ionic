@@ -9,7 +9,7 @@
 
 <ion-content>
 
-  <ion-card>
+  <ion-card class="expecPrice">
     <ion-card-header>
       <ion-card-subtitle>Expected Price:</ion-card-subtitle>
       <ion-card-title>₹ {{objects.expectedPrice}} -/</ion-card-title>
@@ -31,20 +31,9 @@
 <ion-grid>
   <ion-row *ngFor="let text of finalss">
 
-    <!-- <ion-col size="9" *ngIf="text.userType!== currentUserType" class="message other-message">
+    
 
-      <b text-left>{{text.userType}}</b><br>
-      <b text-left>{{text.price}}</b><br>
-
-
-
-       <div class="time" text-right><br>
-        {{text.time | date:'short' }}
-      </div> 
-
-    </ion-col> -->
-
-     <ion-col size="9" offset="3" *ngIf="text.userType==currentUserType" class="message my-message">
+    <ion-col size="8" offset="3" *ngIf="text.userType==currentUserType" class="my-message">
 <div *ngIf="text.initialAccept === 'Accepted'">
       <h3>Bid accepted for : {{text.price}}</h3>
     </div>
@@ -52,9 +41,9 @@
 
 
     <div [hidden]="text.initialAccept === 'Accepted'" >
-      <b>{{text.userType}}::</b><br>
-      <span>{{text.price}}</span><br>
-      <b>PHno -{{text.userNo}}</b>
+      <b>{{text.userType}}:</b><br>
+      <span>{{text.price}}</span>
+      <!-- <b>PHno -{{text.userNo}}</b> -->
       <div class="time" text-right><br>
         {{text.time | date:'short'}}
       </div>
@@ -65,10 +54,10 @@
 
   <!-- <ion-row *ngFor="let text of finalss"> -->
 
-    <ion-col size="9" *ngIf="text.userType!== currentUserType" class="message other-message">
+   <ion-col size="7" *ngIf="text.userType!== currentUserType" class="message other-message">
 
       <b text-left>{{text.userType}}</b><br>
-      <b text-left>{{text.price}}</b><br>
+      <b text-left>{{text.price}}</b>
 
        <div class="time" text-right><br>
        <!-- {{text.time | date:'short' }}-->
@@ -101,13 +90,13 @@ You Accepted the bid for {{item.tentativefinalPrice}}
 
 <!-- bid acceptance by the shipper-->
 
-<ion-card color="success" *ngIf="item.isAgentAccepted == true" >
+<ion-card class="shipperAccept" *ngIf="item.isAgentAccepted == true" >
   <div align="center">
   
   you accepted the bid for:{{item.tentativefinalPrice}}
   </div >
   </ion-card>
-  <ion-card color="success" *ngIf="item.isShipperAccepted == true" >
+  <ion-card class="shipperAccept" *ngIf="item.isShipperAccepted == true" >
     <div align="center">
     
     Shipper Approved  for:{{item.tentativefinalPrice}}

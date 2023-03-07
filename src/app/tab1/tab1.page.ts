@@ -138,6 +138,11 @@ body={
         this.completedGet()
         console.log(isActive)
        }
+       togglesss(isActive:any){
+        this.isactive=isActive
+        this.inTransitGet()
+        console.log(isActive)
+       }
 
        activeGet(){
         console.log(this.isactive)
@@ -196,6 +201,32 @@ completedGet(){
   console.log(this.isactive)
   var body={
     Number: "12345678", isActive:"Completed" 
+  }
+fetch("http://localhost:3000/quotes/loadsByStatusAndNumber" , {
+method: 'POST',
+headers: {
+  "access-Control-Allow-Origin": "*",
+  "Content-Type": 'application/json'
+},
+body: JSON.stringify(body),
+})
+.then(response => response.json())
+.then(result => {
+  console.log(result),
+    this.item = result.load
+   console.log(this.item)
+}
+
+).catch(err =>
+  console.log(err))
+}
+
+
+
+inTransitGet(){
+  console.log(this.isactive)
+  var body={
+    Number: "12345678", isActive:"In-Progress" 
   }
 fetch("http://localhost:3000/quotes/loadsByStatusAndNumber" , {
 method: 'POST',
