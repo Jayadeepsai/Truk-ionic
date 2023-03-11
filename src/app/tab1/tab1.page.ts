@@ -86,7 +86,7 @@ body={
    // console.log(data)
 
     console.log(docData)
-    fetch("http://localhost:3000/postLoad/loadDeactivate/" + docData._id, {
+    fetch("http://localhost:3000/quotes/loadDeactivate/" + docData._id, {
       method: 'PUT',
       headers: {
         "access-Control-Allow-Origin": "*",
@@ -138,11 +138,11 @@ body={
         this.completedGet()
         console.log(isActive)
        }
-       togglesss(isActive:any){
+       /* togglesss(isActive:any){
         this.isactive=isActive
         this.inTransitGet()
         console.log(isActive)
-       }
+       } */
 
        activeGet(){
         console.log(this.isactive)
@@ -223,7 +223,7 @@ body: JSON.stringify(body),
 
 
 
-inTransitGet(){
+/* inTransitGet(){
   console.log(this.isactive)
   var body={
     Number: "12345678", isActive:"In-Progress" 
@@ -245,7 +245,7 @@ body: JSON.stringify(body),
 
 ).catch(err =>
   console.log(err))
-}
+} */
 
 
 

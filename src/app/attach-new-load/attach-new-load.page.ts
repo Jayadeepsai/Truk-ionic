@@ -24,6 +24,9 @@ export class AttachNewLoadPage implements AfterViewInit {
   height: any;
   pickupState:any;
   dropupState:any;
+  pincode: any;
+  city: any;
+  state: any;
 
 
   map: any;
@@ -49,7 +52,16 @@ export class AttachNewLoadPage implements AfterViewInit {
 
   Items: any;
   data: any;
-
+  slideOpts = {
+    
+  };
+  item: any;
+ 
+  
+  pickupPincode: any;
+  dropupPincode: any;
+  pickup: any;
+  dropup: any;
 
   constructor(
     public zone: NgZone, private alertController: AlertController
@@ -64,7 +76,7 @@ export class AttachNewLoadPage implements AfterViewInit {
   }
 
 
-
+  
 
 
   loadMapWithDirection() {
@@ -174,15 +186,42 @@ export class AttachNewLoadPage implements AfterViewInit {
     this.autocomplete.input = ''
   }
 
+  async getPickupState() {
+    const url = `https://api.postalpincode.in/pincode/${this.pickupPincode}`;
+    const response = await fetch(url);
+    const data = await response.json();
+  
+    if (data[0].Status === 'Success') {
+      const postOffice = data[0].PostOffice[0];
+      this.pickup = `${postOffice.State}`;
+    } else {
+      this.pickup = 'Invalid Pincode';
+    }
+  }
+
+  async getDropupState() {
+    const url = `https://api.postalpincode.in/pincode/${this.dropupPincode}`;
+    const response = await fetch(url);
+    const data = await response.json();
+  
+    if (data[0].Status === 'Success') {
+      const postOffice = data[0].PostOffice[0];
+      this.dropup = `${postOffice.State}`;
+    } else {
+      this.dropup = 'Invalid Pincode';
+    }
+  }
+
+
 
   async sendData() {
 
     var body = {
       DestinationLocation: this.DestinationLocation,
       OriginLocation: this.OriginLocation,
-      pickupState: this.pickupState,
-      dropupState: this.dropupState,
-      Number: this.Number,
+      pickupState: this.pickup,
+      dropupState: this.dropup,
+      Number: '12345678',
       date: this.date,
       product: this.product,
       Quantity: this.Quantity,
@@ -210,6 +249,7 @@ export class AttachNewLoadPage implements AfterViewInit {
       .then(async result => {
         console.log(result)
         this.Items = result
+      
         const alert = await this.alertController.create({
           header: 'Successfull',
           message: 'Load posted Successfully',
@@ -235,10 +275,10 @@ export class AttachNewLoadPage implements AfterViewInit {
       ).catch(err =>
         console.log(err))
 
-
-
   }
 
+
+  
 
 
 }

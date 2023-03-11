@@ -38,6 +38,7 @@ export class Tab2Page implements OnInit {
   constructor(private router:Router) { }
   ngOnInit(): void {
     this.post()
+    
   }
   toggle(isActive:any){
     this.isactive=isActive
@@ -50,15 +51,15 @@ export class Tab2Page implements OnInit {
     this.completedGet()
     console.log(isActive)
    }
-   togglesss(isActive:any){
+   /* togglesss(isActive:any){
     this.isactive=isActive
     this.inTransitget()
     console.log(isActive)
-   }
+   } */
 
   post() {
     var body={
-      mobileNo:9876543234,
+      mobileNo:987654323,
       isActive:"Active"
     }
     fetch("http://localhost:3000/quotes/LoadMarket", {
@@ -83,7 +84,7 @@ export class Tab2Page implements OnInit {
 
    completedGet(){
     var body={
-      mobileNo:9876543234,
+      mobileNo:987654323,
       isActive:"Completed"
     }
     fetch("http://localhost:3000/quotes/LoadMarket", {
@@ -105,7 +106,7 @@ export class Tab2Page implements OnInit {
         console.log(err))
   }
 
-
+/* 
   inTransitget(){
 var body={
       mobileNo:9876543234,
@@ -130,7 +131,7 @@ var body={
         console.log(err))
 
   }
-  
+   */
   
   loadById(load: any) {
     //   console.log(load)
