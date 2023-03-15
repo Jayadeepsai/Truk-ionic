@@ -18,9 +18,9 @@
 
       <div class="container">
         <div class="title">
-         <h1>Load Details</h1> 
+          <h1>Load Details</h1>
         </div>
-        <br>
+
         <!--select origin Location-->
 
 
@@ -30,17 +30,17 @@
             (ionClear)="ClearAutocomplete()"></ion-input>
         </div>
         <br>
-         <!--select destination Location-->
+        <!--select destination Location-->
 
-         <div class="form-group">
+        <div class="form-group">
           <ion-input type="text" class="form-control" placeholder="  Enter Drop Location"
             [(ngModel)]="DestinationLocation" (ionInput)="GetDestinationLocation(DestinationLocation)"
             (ionClear)="ClearAutocomplete()"></ion-input>
         </div>
 
-  
-         <!--showing the list of address-->
-         <ion-list [hidden]="autocompleteItems.length == 0">
+
+        <!--showing the list of address-->
+        <ion-list [hidden]="autocompleteItems.length == 0">
           <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
             {{ item.description }}
           </ion-item>
@@ -50,150 +50,38 @@
         <!--Pickup pincode-->
 
         <div class="form-group">
-          <ion-input placeholder="Pickup Pincode" class="form-control"[(ngModel)]="pickupPincode" (ionChange)="getPickupState()"></ion-input>
+          <ion-input placeholder="Pickup Pincode" class="form-control" [(ngModel)]="pickupPincode"
+            (ionChange)="getPickupState()"></ion-input>
         </div>
 
         <br>
 
-       
+
         <!--Pickup State-->
 
         <div class="form-group">
-          <ion-input class="form-control" placeholder="Pickup State" disabled="disabled" [(ngModel)]="pickup"></ion-input>
+          <ion-input class="form-control" placeholder="Pickup State" disabled="disabled"
+            [(ngModel)]="pickup"></ion-input>
         </div>
 
         <br>
 
-       
+
         <!--Dropup pincode-->
-        
+
         <div class="form-group">
-          <ion-input placeholder="Dropup Pincode" class="form-control"[(ngModel)]="dropupPincode" (ionChange)="getDropupState()"></ion-input>
+          <ion-input placeholder="Dropup Pincode" class="form-control" [(ngModel)]="dropupPincode"
+            (ionChange)="getDropupState()"></ion-input>
         </div>
-<br>
+        <br>
         <!--Dropup State-->
 
         <div class="form-group">
-          <ion-input class="form-control"  placeholder="Dropup State" disabled="disabled" [(ngModel)]="dropup"></ion-input>
+          <ion-input class="form-control" placeholder="Dropup State" disabled="disabled"
+            [(ngModel)]="dropup"></ion-input>
         </div>
 
         <br>
-
-       
-
-       
-       
-
-        
-        
-
-        <!--States-->
-
-        <!-- <div class="form-group">
-          <div placeholder="Select Pickup State">
-
-            <ion-select placeholder="Select Pickup State" [(ngModel)]="pickupState">
-              <ion-select-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</ion-select-option>
-              <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
-              <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
-              <ion-select-option value="Assam">Assam</ion-select-option>
-              <ion-select-option value="Bihar">Bihar</ion-select-option>
-              <ion-select-option value="Chandigarh">Chandigarh</ion-select-option>
-              <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
-              <ion-select-option value="Dadra Nagar Haveli and Daman Diu">Dadra Nagar Haveli and Daman
-                Diu</ion-select-option>
-              <ion-select-option value="Goa">Goa</ion-select-option>
-              <ion-select-option value="Gujarat">Gujarat</ion-select-option>
-              <ion-select-option value="Haryana">Haryana</ion-select-option>
-              <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
-              <ion-select-option value="Jammu and Kashmir">Jammu and Kashmir</ion-select-option>
-              <ion-select-option value="Jharkhand">Jharkhand</ion-select-option>
-              <ion-select-option value="Karnataka">Karnataka</ion-select-option>
-              <ion-select-option value="Kerala">Kerala</ion-select-option>
-              <ion-select-option value="Lakshadweep">Lakshadweep</ion-select-option>
-              <ion-select-option value="Ladakh">Ladakh</ion-select-option>
-              <ion-select-option value="Madhya Pradesh">Madhya Pradesh</ion-select-option>
-              <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
-              <ion-select-option value="Manipur">Manipur</ion-select-option>
-              <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
-              <ion-select-option value="Mizoram">Mizoram</ion-select-option>
-              <ion-select-option value="Nagaland">Nagaland</ion-select-option>
-              <ion-select-option value="National Capital Territory (Delhi)">National Capital Territory
-                (Delhi)</ion-select-option>
-              <ion-select-option value="Odisha">Odisha</ion-select-option>
-              <ion-select-option value="Puducherry">Puducherry</ion-select-option>
-              <ion-select-option value="Punjab">Punjab</ion-select-option>
-              <ion-select-option value="Rajasthan">Rajasthan</ion-select-option>
-              <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
-              <ion-select-option value="Telangana">Telangana</ion-select-option>
-              <ion-select-option value="Tripura">Tripura</ion-select-option>
-              <ion-select-option value="Uttar Pradesh">Uttar Pradesh</ion-select-option>
-              <ion-select-option value="Uttarakhand">Uttarakhand</ion-select-option>
-              <ion-select-option value="West Bengal">West Bengal</ion-select-option>
-
-            </ion-select>
-          </div>
-        </div> -->
-
-       
-
-        <!--Dropup States-->
-
-        <!-- <div class="form-group">
-          <div class="form-control">
-
-            <ion-select placeholder="Select Dropup State" [(ngModel)]="dropupState">
-              <ion-select-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</ion-select-option>
-              <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
-              <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
-              <ion-select-option value="Assam">Assam</ion-select-option>
-              <ion-select-option value="Bihar">Bihar</ion-select-option>
-              <ion-select-option value="Chandigarh">Chandigarh</ion-select-option>
-              <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
-              <ion-select-option value="Dadra Nagar Haveli and Daman Diu">Dadra Nagar Haveli and Daman
-                Diu</ion-select-option>
-              <ion-select-option value="Goa">Goa</ion-select-option>
-              <ion-select-option value="Gujarat">Gujarat</ion-select-option>
-              <ion-select-option value="Haryana">Haryana</ion-select-option>
-              <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
-              <ion-select-option value="Jammu and Kashmir">Jammu and Kashmir</ion-select-option>
-              <ion-select-option value="Jharkhand">Jharkhand</ion-select-option>
-              <ion-select-option value="Karnataka">Karnataka</ion-select-option>
-              <ion-select-option value="Kerala">Kerala</ion-select-option>
-              <ion-select-option value="Lakshadweep">Lakshadweep</ion-select-option>
-              <ion-select-option value="Ladakh">Ladakh</ion-select-option>
-              <ion-select-option value="Madhya Pradesh">Madhya Pradesh</ion-select-option>
-              <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
-              <ion-select-option value="Manipur">Manipur</ion-select-option>
-              <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
-              <ion-select-option value="Mizoram">Mizoram</ion-select-option>
-              <ion-select-option value="Nagaland">Nagaland</ion-select-option>
-              <ion-select-option value="National Capital Territory (Delhi)">National Capital Territory
-                (Delhi)</ion-select-option>
-              <ion-select-option value="Odisha">Odisha</ion-select-option>
-              <ion-select-option value="Puducherry">Puducherry</ion-select-option>
-              <ion-select-option value="Punjab">Punjab</ion-select-option>
-              <ion-select-option value="Rajasthan">Rajasthan</ion-select-option>
-              <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
-              <ion-select-option value="Telangana">Telangana</ion-select-option>
-              <ion-select-option value="Tripura">Tripura</ion-select-option>
-              <ion-select-option value="Uttar Pradesh">Uttar Pradesh</ion-select-option>
-              <ion-select-option value="Uttarakhand">Uttarakhand</ion-select-option>
-              <ion-select-option value="West Bengal">West Bengal</ion-select-option>
-
-            </ion-select>
-          </div>
-        </div>
-        <br> -->
-        <!--User Number-->
-
-        <!-- <div class="form-group">
-          <ion-label position="floating">Pincode</ion-label>
-    <ion-input [(ngModel)]="pincode" (ionChange)="getCityState()"></ion-input>
-        </div> -->
-
-        
-
 
 
         <!--select Goods-->
@@ -234,6 +122,8 @@
           <ion-input type="  text" class="form-control" placeholder="Quantity" [(ngModel)]="Quantity"></ion-input>
         </div>
 
+        <br>
+
 
 
 
@@ -244,7 +134,7 @@
       <!--SLIDE 2-->
 
       <!-- <div class="ion-padding" slot="content"> -->
-        <div class="container">
+      <div class="container">
         <h1>Select vehicle</h1>
 
         <!--select vehicle Type-->
@@ -364,46 +254,84 @@
 
       <!--SLIDE 3-->
       <div class="container">
-      <!-- <div class="ion-padding" slot="content"> -->
-        
-          <h1>Payment</h1>
-          <br>
-          <!--Expected Bill-->
+        <!-- <div class="ion-padding" slot="content"> -->
 
-          <div class="form-group">
-            <ion-input type="  text" class="form-control" placeholder="Expected Price"
-              [(ngModel)]="expectedPrice"></ion-input>
-          </div>
+        <h1>Payment</h1>
+        <br>
+        <!--Expected Bill-->
 
-          <br>
+        <div class="form-group">
+          <ion-input type="  text" class="form-control" placeholder="Expected Price"
+            [(ngModel)]="expectedPrice"></ion-input>
+        </div>
 
-          <!--How would you like to pay-->
+        <br>
 
-          <div class="form-group">
-            <div class="form-control">
-              <ion-label></ion-label>
-              <ion-select placeholder="Type of Payment to Lorry Owner" [(ngModel)]="typeOfPay">
-                <ion-select-option value="Offline">Offline</ion-select-option>
-                <ion-select-option value="Online">Online</ion-select-option>
+        <!--How would you like to pay-->
 
-              </ion-select>
-            </div>
-          </div>
+        <div class="form-group">
+          <div class="form-control">
+            <ion-label></ion-label>
+            <ion-select placeholder="Type of Payment to Lorry Owner" [(ngModel)]="typeOfPay">
+              <ion-select-option value="Offline">Offline/Cash</ion-select-option>
+              <ion-select-option value="Online">Online</ion-select-option>
 
-          <br>
-
-
-
-          <!--Comments-->
-
-          <div class="form-group">
-            <ion-textarea type="  text" class="form-control" placeholder="Comments"
-              [(ngModel)]="comments"></ion-textarea>
+            </ion-select>
           </div>
         </div>
+
+        <br>
+
+        <!--Type of pay if offline-->
+
+        <div class="form-group" style="display: flex;margin-bottom: 10px;" *ngIf="typeOfPay =='Offline' ">
+          <div class="form-control">
+            <p>How do you like to pay ?</p>
+            <ion-radio-group [(ngModel)]="paymentTypeForOffline" >
+             
+              <div style="float: left;display: flex;font-size: large;">
+              <ion-radio value="Advance">Advance</ion-radio>
+              <ion-label >Advance</ion-label>
+            </div>
+              <div style="display: inline; float: right;display: flex;font-size: large;">
+              <ion-radio value="Full Payment"></ion-radio>
+              <ion-label>Full Payment</ion-label>
+            </div>
+            </ion-radio-group>
+          </div>
+        </div>
+
+        
+
+        
+
+        <!--How much advance -->
+        <div class="form-group" *ngIf="paymentTypeForOffline =='Advance' " style="margin-bottom: 10px;">
+          <p>How much would you like to pay in advance ?</p>
+          <ion-input type="text" class="form-control" placeholder="Advance" [(ngModel)]="advance"></ion-input>
+        </div>
+
+        
+        <p *ngIf="typeOfPay =='Offline' " style="color: rgb(243, 77, 77);font-size: small;">We are Not Responsible for payment T&C</p>
+        <!--Comments-->
+
+        <div class="form-group">
+          <ion-textarea type="  text" class="form-control" placeholder="Comments" [(ngModel)]="comments"></ion-textarea>
+        </div>
+      </div>
       <!-- </div> -->
     </ion-slide>
   </ion-slides>
+
+  <div class="ion-padding">
+    <ion-button (click)="slidePrev()" class="previous" shape="round">
+      <ion-icon name="arrow-back"></ion-icon> Previous
+    </ion-button>
+
+    <ion-button (click)="slideNext()" class="Next" shape="round">
+      Next <ion-icon name="arrow-forward"></ion-icon>
+    </ion-button>
+  </div>
 
 
 
@@ -412,7 +340,7 @@
 
   </div> -->
 
-  <div #map='' style="height: 90%;"></div>
+  <div #map='' style="height: 50%;"></div>
 </ion-content>
 <ion-button (click)="sendData()" (click)="calculateAndDisplayRoute()" expand="full" class="next"
   shape="round">Submit</ion-button>

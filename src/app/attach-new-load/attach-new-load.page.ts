@@ -1,12 +1,17 @@
 import { AfterViewInit, Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 declare var google: any;
+
+import { IonSlides } from '@ionic/angular';
 @Component({
   selector: 'app-attach-new-load',
   templateUrl: './attach-new-load.page.html',
   styleUrls: ['./attach-new-load.page.scss'],
 })
 export class AttachNewLoadPage implements AfterViewInit {
+
+  @ViewChild(IonSlides)
+  slides!: IonSlides;
 
   @ViewChild('map', { static: false }) mapElement: any;
   tonnes: any;
@@ -62,6 +67,8 @@ export class AttachNewLoadPage implements AfterViewInit {
   dropupPincode: any;
   pickup: any;
   dropup: any;
+  paymentTypeForOffline: any;
+  advance: any;
 
   constructor(
     public zone: NgZone, private alertController: AlertController
@@ -230,6 +237,8 @@ export class AttachNewLoadPage implements AfterViewInit {
       expectedPrice: this.expectedPrice,
       data: this.data,
       typeOfPay: this.typeOfPay,
+      paymentTypeForOffline:this.paymentTypeForOffline,
+      advance:this.advance,
       length: this.length,
       breadth: this.breadth,
       height: this.height,
@@ -278,7 +287,13 @@ export class AttachNewLoadPage implements AfterViewInit {
   }
 
 
-  
+  slidePrev() {
+    this.slides.slidePrev();
+  }
+
+  slideNext() {
+    this.slides.slideNext();
+  }
 
 
 }

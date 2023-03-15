@@ -5,6 +5,13 @@
 .next{
     --background: #F58E26;
 }
+.Next{
+  --background: #F58E26;
+  float: right; 
+}
+.previous{
+  --background: #F58E26;
+}
 
 ion-checkbox {
     --size: 32px;
@@ -142,3 +149,4 @@ input[type=radio]:checked + label {
 //   .title {
 //     border-bottom: 1px solid #dedede;
 // }
+

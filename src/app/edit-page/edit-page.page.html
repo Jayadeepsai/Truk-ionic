@@ -7,282 +7,282 @@
   </ion-toolbar>
 </ion-header>
 
-<br>
+
 
 <ion-content>
   <form [formGroup]="updateproductForm" (ngSubmit)="updateForm(userPost.value)" #userPost="ngForm">
-    <ion-accordion-group [multiple]="true" [value]="['first']">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <div class="container">
+          <h1>Load Details</h1>
+          <div class="ion-padding" slot="content">
 
-      <ion-accordion value="first">
+            <ion-list>
+              <ion-item>
+                <ion-label>Pickup Location: </ion-label>
+                <ion-input type="text" placeholder="Enter Pickup Location" formControlName="OriginLocation"
+                  [(ngModel)]="real.OriginLocation"></ion-input>
+              </ion-item>
 
-        <ion-item slot="header" color="light" class="load">
-          <ion-label>Load Details</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
+              <ion-item>
+                <ion-label>Drop Location: </ion-label>
+                <ion-input type="text" placeholder="Enter Drop Location" formControlName="DestinationLocation"
+                  [(ngModel)]="real.DestinationLocation"></ion-input>
+              </ion-item>
 
-          <ion-list>
-            <ion-item>
-              <ion-label>Pickup Location: </ion-label>
-              <ion-input type="text" placeholder="Enter Pickup Location" formControlName="OriginLocation"
-                [(ngModel)]="real.OriginLocation"></ion-input>
-            </ion-item>
+              <!-- <div class="form-group">
+                <div class="form-control">
 
-            <ion-item>
-              <ion-label>Drop Location: </ion-label>
-              <ion-input type="text" placeholder="Enter Drop Location" formControlName="DestinationLocation"
-                [(ngModel)]="real.DestinationLocation"></ion-input>
-            </ion-item>
+                  <ion-select placeholder="Select Pickup State" [(ngModel)]="real.pickupState"
+                    formControlName="pickupState">
+                    <ion-select-option value="Andaman and Nicobar Islands">Andaman and Nicobar
+                      Islands</ion-select-option>
+                    <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
+                    <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
+                    <ion-select-option value="Assam">Assam</ion-select-option>
+                    <ion-select-option value="Bihar">Bihar</ion-select-option>
+                    <ion-select-option value="Chandigarh">Chandigarh</ion-select-option>
+                    <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
+                    <ion-select-option value="Dadra Nagar Haveli and Daman Diu">Dadra Nagar Haveli and Daman
+                      Diu</ion-select-option>
+                    <ion-select-option value="Goa">Goa</ion-select-option>
+                    <ion-select-option value="Gujarat">Gujarat</ion-select-option>
+                    <ion-select-option value="Haryana">Haryana</ion-select-option>
+                    <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
+                    <ion-select-option value="Jammu and Kashmir">Jammu and Kashmir</ion-select-option>
+                    <ion-select-option value="Jharkhand">Jharkhand</ion-select-option>
+                    <ion-select-option value="Karnataka">Karnataka</ion-select-option>
+                    <ion-select-option value="Kerala">Kerala</ion-select-option>
+                    <ion-select-option value="Lakshadweep">Lakshadweep</ion-select-option>
+                    <ion-select-option value="Ladakh">Ladakh</ion-select-option>
+                    <ion-select-option value="Madhya Pradesh">Madhya Pradesh</ion-select-option>
+                    <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
+                    <ion-select-option value="Manipur">Manipur</ion-select-option>
+                    <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
+                    <ion-select-option value="Mizoram">Mizoram</ion-select-option>
+                    <ion-select-option value="Nagaland">Nagaland</ion-select-option>
+                    <ion-select-option value="National Capital Territory (Delhi)">National Capital Territory
+                      (Delhi)</ion-select-option>
+                    <ion-select-option value="Odisha">Odisha</ion-select-option>
+                    <ion-select-option value="Puducherry">Puducherry</ion-select-option>
+                    <ion-select-option value="Punjab">Punjab</ion-select-option>
+                    <ion-select-option value="Rajasthan">Rajasthan</ion-select-option>
+                    <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
+                    <ion-select-option value="Telangana">Telangana</ion-select-option>
+                    <ion-select-option value="Tripura">Tripura</ion-select-option>
+                    <ion-select-option value="Uttar Pradesh">Uttar Pradesh</ion-select-option>
+                    <ion-select-option value="Uttarakhand">Uttarakhand</ion-select-option>
+                    <ion-select-option value="West Bengal">West Bengal</ion-select-option>
 
-            <div class="form-group">
-              <div class="form-control">
-               
-                <ion-select placeholder="Select Pickup State"  [(ngModel)]="real.pickupState" formControlName="pickupState">
-                  <ion-select-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</ion-select-option>
-                  <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
-                  <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
-                  <ion-select-option value="Assam">Assam</ion-select-option>
-                  <ion-select-option value="Bihar">Bihar</ion-select-option>
-                  <ion-select-option value="Chandigarh">Chandigarh</ion-select-option>
-                  <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
-                  <ion-select-option value="Dadra Nagar Haveli and Daman Diu">Dadra Nagar Haveli and Daman Diu</ion-select-option>
-                  <ion-select-option value="Goa">Goa</ion-select-option>
-                  <ion-select-option value="Gujarat">Gujarat</ion-select-option>
-                  <ion-select-option value="Haryana">Haryana</ion-select-option>
-                  <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
-                  <ion-select-option value="Jammu and Kashmir">Jammu and Kashmir</ion-select-option>
-                  <ion-select-option value="Jharkhand">Jharkhand</ion-select-option>
-                  <ion-select-option value="Karnataka">Karnataka</ion-select-option>
-                  <ion-select-option value="Kerala">Kerala</ion-select-option>
-                  <ion-select-option value="Lakshadweep">Lakshadweep</ion-select-option>
-                  <ion-select-option value="Ladakh">Ladakh</ion-select-option>
-                  <ion-select-option value="Madhya Pradesh">Madhya Pradesh</ion-select-option>
-                  <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
-                  <ion-select-option value="Manipur">Manipur</ion-select-option>
-                  <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
-                  <ion-select-option value="Mizoram">Mizoram</ion-select-option>
-                  <ion-select-option value="Nagaland">Nagaland</ion-select-option>
-                  <ion-select-option value="National Capital Territory (Delhi)">National Capital Territory (Delhi)</ion-select-option>
-                  <ion-select-option value="Odisha">Odisha</ion-select-option>
-                  <ion-select-option value="Puducherry">Puducherry</ion-select-option>
-                  <ion-select-option value="Punjab">Punjab</ion-select-option>
-                  <ion-select-option value="Rajasthan">Rajasthan</ion-select-option>
-                  <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
-                  <ion-select-option value="Telangana">Telangana</ion-select-option>
-                  <ion-select-option value="Tripura">Tripura</ion-select-option>
-                  <ion-select-option value="Uttar Pradesh">Uttar Pradesh</ion-select-option>
-                  <ion-select-option value="Uttarakhand">Uttarakhand</ion-select-option>
-                  <ion-select-option value="West Bengal">West Bengal</ion-select-option>
+                  </ion-select>
+                </div>
+              </div>
+
+              <br>
+
+              <div class="form-group">
+                <div class="form-control">
+
+                  <ion-select placeholder="Select Dropup State" [(ngModel)]="real.dropupState"
+                    formControlName="dropupState">
+                    <ion-select-option value="Andaman and Nicobar Islands">Andaman and Nicobar
+                      Islands</ion-select-option>
+                    <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
+                    <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
+                    <ion-select-option value="Assam">Assam</ion-select-option>
+                    <ion-select-option value="Bihar">Bihar</ion-select-option>
+                    <ion-select-option value="Chandigarh">Chandigarh</ion-select-option>
+                    <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
+                    <ion-select-option value="Dadra Nagar Haveli and Daman Diu">Dadra Nagar Haveli and Daman
+                      Diu</ion-select-option>
+                    <ion-select-option value="Goa">Goa</ion-select-option>
+                    <ion-select-option value="Gujarat">Gujarat</ion-select-option>
+                    <ion-select-option value="Haryana">Haryana</ion-select-option>
+                    <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
+                    <ion-select-option value="Jammu and Kashmir">Jammu and Kashmir</ion-select-option>
+                    <ion-select-option value="Jharkhand">Jharkhand</ion-select-option>
+                    <ion-select-option value="Karnataka">Karnataka</ion-select-option>
+                    <ion-select-option value="Kerala">Kerala</ion-select-option>
+                    <ion-select-option value="Lakshadweep">Lakshadweep</ion-select-option>
+                    <ion-select-option value="Ladakh">Ladakh</ion-select-option>
+                    <ion-select-option value="Madhya Pradesh">Madhya Pradesh</ion-select-option>
+                    <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
+                    <ion-select-option value="Manipur">Manipur</ion-select-option>
+                    <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
+                    <ion-select-option value="Mizoram">Mizoram</ion-select-option>
+                    <ion-select-option value="Nagaland">Nagaland</ion-select-option>
+                    <ion-select-option value="National Capital Territory (Delhi)">National Capital Territory
+                      (Delhi)</ion-select-option>
+                    <ion-select-option value="Odisha">Odisha</ion-select-option>
+                    <ion-select-option value="Puducherry">Puducherry</ion-select-option>
+                    <ion-select-option value="Punjab">Punjab</ion-select-option>
+                    <ion-select-option value="Rajasthan">Rajasthan</ion-select-option>
+                    <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
+                    <ion-select-option value="Telangana">Telangana</ion-select-option>
+                    <ion-select-option value="Tripura">Tripura</ion-select-option>
+                    <ion-select-option value="Uttar Pradesh">Uttar Pradesh</ion-select-option>
+                    <ion-select-option value="Uttarakhand">Uttarakhand</ion-select-option>
+                    <ion-select-option value="West Bengal">West Bengal</ion-select-option>
+
+                  </ion-select>
+                </div>
+              </div> -->
+
+              <ion-item>
+                <ion-label>User Number: </ion-label>
+                <ion-input type="text" placeholder="Enter Mobile Number" formControlName="Number" readonly
+                  [(ngModel)]="real.Number"></ion-input>
+              </ion-item>
+
+              <div class="form-group">
+                <div class="form-control">
+
+                  <ion-select placeholder="Select Goods Type" [multiple]="true" formControlName="product"
+                    [(ngModel)]="real.product">
+                    <ion-select-option value="Bricks">Bricks</ion-select-option>
+                    <ion-select-option value="Cement Products">Cement Products</ion-select-option>
+                    <ion-select-option value="Clothes">Clothes</ion-select-option>
+                    <ion-select-option value="E-Waste">E-Waste</ion-select-option>
+                    <ion-select-option value="Electrical Equipment">Electrical Equipment</ion-select-option>
+                    <ion-select-option value="Flowers">Flowers</ion-select-option>
+                    <ion-select-option value="Fertilizer and Seeds">Fertilizer and Seeds</ion-select-option>
+                    <ion-select-option value="Food">Food</ion-select-option>
+
+                  </ion-select>
+                </div>
+              </div>
+
+              <br>
+
+              <div class="form-group">
+                <div class="form-control">
+                  <ion-input type="datetime-local" style="border: none; " formControlName="date"
+                    [(ngModel)]="real.date"></ion-input>
+                </div>
+              </div>
+
+              <br>
+
+              <div class="form-group">
+                <ion-input type="  text" class="form-control" placeholder="Quantity" formControlName="Quantity"
+                  [(ngModel)]="real.Quantity"></ion-input>
+              </div>
   
-                </ion-select>
-              </div>
-            </div>
-
-            <br>
-
-            <div class="form-group">
-              <div class="form-control">
-               
-                <ion-select placeholder="Select Dropup State"  [(ngModel)]="real.dropupState" formControlName="dropupState">
-                  <ion-select-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</ion-select-option>
-                  <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
-                  <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
-                  <ion-select-option value="Assam">Assam</ion-select-option>
-                  <ion-select-option value="Bihar">Bihar</ion-select-option>
-                  <ion-select-option value="Chandigarh">Chandigarh</ion-select-option>
-                  <ion-select-option value="Chhattisgarh">Chhattisgarh</ion-select-option>
-                  <ion-select-option value="Dadra Nagar Haveli and Daman Diu">Dadra Nagar Haveli and Daman Diu</ion-select-option>
-                  <ion-select-option value="Goa">Goa</ion-select-option>
-                  <ion-select-option value="Gujarat">Gujarat</ion-select-option>
-                  <ion-select-option value="Haryana">Haryana</ion-select-option>
-                  <ion-select-option value="Himachal Pradesh">Himachal Pradesh</ion-select-option>
-                  <ion-select-option value="Jammu and Kashmir">Jammu and Kashmir</ion-select-option>
-                  <ion-select-option value="Jharkhand">Jharkhand</ion-select-option>
-                  <ion-select-option value="Karnataka">Karnataka</ion-select-option>
-                  <ion-select-option value="Kerala">Kerala</ion-select-option>
-                  <ion-select-option value="Lakshadweep">Lakshadweep</ion-select-option>
-                  <ion-select-option value="Ladakh">Ladakh</ion-select-option>
-                  <ion-select-option value="Madhya Pradesh">Madhya Pradesh</ion-select-option>
-                  <ion-select-option value="Maharashtra">Maharashtra</ion-select-option>
-                  <ion-select-option value="Manipur">Manipur</ion-select-option>
-                  <ion-select-option value="Meghalaya">Meghalaya</ion-select-option>
-                  <ion-select-option value="Mizoram">Mizoram</ion-select-option>
-                  <ion-select-option value="Nagaland">Nagaland</ion-select-option>
-                  <ion-select-option value="National Capital Territory (Delhi)">National Capital Territory (Delhi)</ion-select-option>
-                  <ion-select-option value="Odisha">Odisha</ion-select-option>
-                  <ion-select-option value="Puducherry">Puducherry</ion-select-option>
-                  <ion-select-option value="Punjab">Punjab</ion-select-option>
-                  <ion-select-option value="Rajasthan">Rajasthan</ion-select-option>
-                  <ion-select-option value="Tamil Nadu">Tamil Nadu</ion-select-option>
-                  <ion-select-option value="Telangana">Telangana</ion-select-option>
-                  <ion-select-option value="Tripura">Tripura</ion-select-option>
-                  <ion-select-option value="Uttar Pradesh">Uttar Pradesh</ion-select-option>
-                  <ion-select-option value="Uttarakhand">Uttarakhand</ion-select-option>
-                  <ion-select-option value="West Bengal">West Bengal</ion-select-option>
-  
-                </ion-select>
-              </div>
-            </div>
-
-            <ion-item>
-              <ion-label>User Number: </ion-label>
-              <ion-input type="text" placeholder="Enter Mobile Number" formControlName="Number"
-                [(ngModel)]="real.Number"></ion-input>
-            </ion-item>
-
-            <div class="form-group">
-              <div class="form-control">
-
-                <ion-select placeholder="Select Goods Type" [multiple]="true" formControlName="product"
-                  [(ngModel)]="real.product">
-                  <ion-select-option value="Bricks">Bricks</ion-select-option>
-                  <ion-select-option value="Cement Products">Cement Products</ion-select-option>
-                  <ion-select-option value="Clothes">Clothes</ion-select-option>
-                  <ion-select-option value="E-Waste">E-Waste</ion-select-option>
-                  <ion-select-option value="Electrical Equipment">Electrical Equipment</ion-select-option>
-                  <ion-select-option value="Flowers">Flowers</ion-select-option>
-                  <ion-select-option value="Fertilizer and Seeds">Fertilizer and Seeds</ion-select-option>
-                  <ion-select-option value="Food">Food</ion-select-option>
-
-                </ion-select>
-              </div>
-            </div>
-
-            <br>
-
-            <div class="form-group">
-              <div class="form-control">
-                <ion-input type="datetime-local" style="border: none; " formControlName="date"
-                  [(ngModel)]="real.date"></ion-input>
-              </div>
-            </div>
+              
 
 
-          </ion-list>
-        </div>
-
-
-      </ion-accordion>
-
-
-      <ion-accordion value="second">
-        <ion-item slot="header" color="light" class="truck">
-          <ion-label>Select Truk</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-
-          <div class="form-group">
-            <ion-input type="  text" class="form-control" placeholder="Quantity"  formControlName="Quantity"
-              [(ngModel)]="real.Quantity"></ion-input>
+            </ion-list>
           </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="container">
+          <h1>Select Truk</h1>
+          <div class="ion-padding" slot="content">
 
-          <br>
-
-          <div class="row" >
-            <div>
-              <div class="column">
-                <input type="radio" name="payment" id="card" (change)="out('Tanker')">
-                <label for="card">
-                  <ion-card-header>
-                    <img src="https://sc04.alicdn.com/kf/HTB12f2keirpK1RjSZFhq6xSdXXa6.jpg" style="height: 94px;
-              width: 131px;
-              margin-top: -50px;;">
-                    <ion-card-title>Tanker</ion-card-title>
-                    <ion-card-subtitle>1 to 35 KL</ion-card-subtitle>
-                  </ion-card-header>
-                </label>
-              </div>
-
-              <div class="column">
-                <input type="radio" name="payment" id="car" (change)="out('Hyva')">
-                <label for="car">
-                  <ion-card-header>
-                    <img
-                      src="https://cms.eichertrucksandbuses.com/uploads/truck/exterior/d3a75f14ce8935f16998f318360966a0.jpg"
-                      style="height: 94px;
-              width: 131px;
-              margin-top: -50px;;">
-                    <ion-card-title> Hyva</ion-card-title>
-                    <ion-card-subtitle>1 to 35 Tonnes</ion-card-subtitle>
-                  </ion-card-header>
-                </label>
-              </div>
-
-              <div class="column">
-                <input type="radio" name="payment" id="ca" (change)="out('LCV')">
-                <label for="ca">
-                  <ion-card-header>
-                    <img
-                      src="https://vamosys.com/wp-content/uploads/2021/05/top-6-lcv-vehicles-tata-ace-gold-petrol.png"
-                      style="height: 94px;
-              width: 131px;
-              margin-top: -50px;;">
-                    <ion-card-title>LCV</ion-card-title>
-                    <ion-card-subtitle>1 to 6 Tonnes</ion-card-subtitle>
-                  </ion-card-header>
-                </label>
-              </div>
-
-              <div class="column">
-                <input type="radio" name="payment" id="cad" (change)="out('Open Truck')">
-                <label for="cad">
-                  <ion-card-header>
-                    <img src="https://www.bharatbenz.com/uploads/truck_images/product_types/main_1661768896.png" style="height: 94px;
+            <div class="row">
+              <div>
+                <div class="column">
+                  <input type="radio" name="payment" id="card" (change)="out('Tanker')">
+                  <label for="card">
+                    <ion-card-header>
+                      <img src="https://sc04.alicdn.com/kf/HTB12f2keirpK1RjSZFhq6xSdXXa6.jpg" style="height: 94px;
             width: 131px;
             margin-top: -50px;;">
-                    <ion-card-title>Open Truck</ion-card-title>
-                    <ion-card-subtitle>1 to 14 tonnes</ion-card-subtitle>
-                  </ion-card-header>
-                </label>
-              </div>
+                      <ion-card-title>Tanker</ion-card-title>
+                      <ion-card-subtitle>1 to 35 KL</ion-card-subtitle>
+                    </ion-card-header>
+                  </label>
+                </div>
 
-              <div class="column">
-                <input type="radio" name="payment" id="Trailer" (change)="out('Trailer')">
-                <label for="Trailer">
-                  <ion-card-header>
-                    <img
-                      src="https://tatatrucks.tatamotors.com/images/tata-heavy-medium-trucks/fully-built-solutions/tata-flat-bed-trailer/flatbedtrailer-overview.png"
-                      style="height: 94px;
+                <div class="column">
+                  <input type="radio" name="payment" id="car" (change)="out('Hyva')">
+                  <label for="car">
+                    <ion-card-header>
+                      <img
+                        src="https://cms.eichertrucksandbuses.com/uploads/truck/exterior/d3a75f14ce8935f16998f318360966a0.jpg"
+                        style="height: 94px;
             width: 131px;
             margin-top: -50px;;">
-                    <ion-card-title>Trailer</ion-card-title>
-                    <ion-card-subtitle>1 to 100 Tonnes</ion-card-subtitle>
-                  </ion-card-header>
-                </label>
-              </div>
+                      <ion-card-title> Hyva</ion-card-title>
+                      <ion-card-subtitle>1 to 35 Tonnes</ion-card-subtitle>
+                    </ion-card-header>
+                  </label>
+                </div>
 
-              <div class="column">
-                <input type="radio" name="payment" id="container" (change)="out('Container')">
-                <label for="container">
-                  <ion-card-header>
-                    <img
-                      src="https://www.icemakeindia.com/wp-content/uploads/2019/08/Refrigerated-Container-8-1024x1024.png"
-                      style="height: 94px;
+                <div class="column">
+                  <input type="radio" name="payment" id="ca" (change)="out('LCV')">
+                  <label for="ca">
+                    <ion-card-header>
+                      <img
+                        src="https://vamosys.com/wp-content/uploads/2021/05/top-6-lcv-vehicles-tata-ace-gold-petrol.png"
+                        style="height: 94px;
             width: 131px;
             margin-top: -50px;;">
-                    <ion-card-title>Container</ion-card-title>
-                    <ion-card-subtitle>1 to 18 Tonnes</ion-card-subtitle>
-                  </ion-card-header>
-                </label>
+                      <ion-card-title>LCV</ion-card-title>
+                      <ion-card-subtitle>1 to 6 Tonnes</ion-card-subtitle>
+                    </ion-card-header>
+                  </label>
+                </div>
+
+                <div class="column">
+                  <input type="radio" name="payment" id="cad" (change)="out('Open Truck')">
+                  <label for="cad">
+                    <ion-card-header>
+                      <img src="https://www.bharatbenz.com/uploads/truck_images/product_types/main_1661768896.png"
+                        style="height: 94px;
+          width: 131px;
+          margin-top: -50px;;">
+                      <ion-card-title>Open Truck</ion-card-title>
+                      <ion-card-subtitle>1 to 14 tonnes</ion-card-subtitle>
+                    </ion-card-header>
+                  </label>
+                </div>
+
+                <div class="column">
+                  <input type="radio" name="payment" id="Trailer" (change)="out('Trailer')">
+                  <label for="Trailer">
+                    <ion-card-header>
+                      <img
+                        src="https://tatatrucks.tatamotors.com/images/tata-heavy-medium-trucks/fully-built-solutions/tata-flat-bed-trailer/flatbedtrailer-overview.png"
+                        style="height: 94px;
+          width: 131px;
+          margin-top: -50px;;">
+                      <ion-card-title>Trailer</ion-card-title>
+                      <ion-card-subtitle>1 to 100 Tonnes</ion-card-subtitle>
+                    </ion-card-header>
+                  </label>
+                </div>
+
+                <div class="column">
+                  <input type="radio" name="payment" id="container" (change)="out('Container')">
+                  <label for="container">
+                    <ion-card-header>
+                      <img
+                        src="https://www.icemakeindia.com/wp-content/uploads/2019/08/Refrigerated-Container-8-1024x1024.png"
+                        style="height: 94px;
+          width: 131px;
+          margin-top: -50px;;">
+                      <ion-card-title>Container</ion-card-title>
+                      <ion-card-subtitle>1 to 18 Tonnes</ion-card-subtitle>
+                    </ion-card-header>
+                  </label>
+                </div>
               </div>
             </div>
+
           </div>
-
         </div>
-      </ion-accordion>
-
-
-      <ion-accordion value="third">
-        <ion-item slot="header" color="light" class="payment">
-          <ion-label>Payment</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-
+      </ion-slide>
+      <ion-slide>
+        <div class="container">
+          <h1>Payment</h1>
           <div class="ion-padding" slot="content">
 
             <!--Expected Bill-->
 
             <div class="form-group">
-              <ion-input type="  text" class="form-control" placeholder="Expected Price"   formControlName="expectedPrice"
+              <ion-input type="  text" class="form-control" placeholder="Expected Price" formControlName="expectedPrice"
                 [(ngModel)]="real.expectedPrice"></ion-input>
             </div>
 
@@ -293,7 +293,8 @@
             <div class="form-group">
               <div class="form-control">
                 <ion-label></ion-label>
-                <ion-select placeholder="Type of Payment to Lorry Owner"  [(ngModel)]="real.typeOfPay"  formControlName="typeOfPay">
+                <ion-select placeholder="Type of Payment to Lorry Owner" [(ngModel)]="real.typeOfPay"
+                  formControlName="typeOfPay">
                   <ion-select-option value="Online">Online</ion-select-option>
                   <ion-select-option value="Offline">Offline</ion-select-option>
 
@@ -303,12 +304,7 @@
 
             <br>
 
-            <!--ODC checkbox-->
 
-            <!-- <ion-item>
-          <ion-checkbox slot="start"></ion-checkbox>
-          <ion-label>It's a ODC consignment</ion-label>
-        </ion-item> -->
 
             <!--Comments-->
 
@@ -317,7 +313,69 @@
                 [(ngModel)]="real.comments"></ion-textarea>
             </div>
 
-            <br>
+            
+
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="ion-padding">
+      <ion-button (click)="slidePrev()" class="previous" shape="round">
+        <ion-icon name="arrow-back"></ion-icon> Previous
+      </ion-button>
+  
+      <ion-button (click)="slideNext()" class="Next" shape="round">
+        Next <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+    </div>
+
+
+  </form>
+
+</ion-content>
+<ion-button expand="full" class="next" shape="round" (click)="updateForm(userPost.value)"
+  routerLink="/tabs/tab1">Save</ion-button>
+
+<!-- <ion-accordion-group [multiple]="true" [value]="['first']">
+
+    <ion-accordion value="first">
+
+      <ion-item slot="header" color="light" class="load">
+        <ion-label>Load Details</ion-label>
+      </ion-item>
+
+
+
+    </ion-accordion>
+
+
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light" class="truck">
+        <ion-label>Select Truk</ion-label>
+      </ion-item>
+
+    </ion-accordion>
+
+
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light" class="payment">
+        <ion-label>Payment</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+
+       
+      </div>
+
+
+
+
+    </ion-accordion>
+
+  </ion-accordion-group> -->
+
+
+  <!-- <br>
 
             <ion-item fill="outline">
               <ion-label position="floating">Length</ion-label>
@@ -332,19 +390,4 @@
             <ion-item fill="outline">
               <ion-label position="floating">Height</ion-label>
               <ion-input placeholder="0.0 Mts" [(ngModel)]="real.height" formControlName="height"></ion-input>
-            </ion-item>
-
-          </div>
-        </div>
-
-
-
-
-      </ion-accordion>
-
-    </ion-accordion-group>
-   
-  </form>
-  
-</ion-content>
-<ion-button expand="full" class="next" shape="round" (click)="updateForm(userPost.value)" routerLink="/tabs/tab1">Save</ion-button>
+            </ion-item> -->
