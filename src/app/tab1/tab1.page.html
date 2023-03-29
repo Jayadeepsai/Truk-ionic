@@ -71,23 +71,28 @@
     </ion-card-header>
    -->
 
-
+<ion-row>
     <ion-segment [scrollable]="true" value="home">
-      <ion-segment-button value="home" (click)="toggle('Active')">
-        <ion-label>Active</ion-label>
-      </ion-segment-button>
+      <ion-col>
+        <ion-segment-button value="home" (click)="toggle('Active')">
+          <ion-label>Active</ion-label>
+        </ion-segment-button>
+      </ion-col>
+     <ion-col>
       <ion-segment-button value="heart" (click)="toggles('Deactive')">
         <ion-label>Deactive</ion-label>
       </ion-segment-button>
+     </ion-col>
       <!-- <ion-segment-button value="heat" (click)="togglesss('In-Progress')">
         <ion-label>In-Progress</ion-label>
       </ion-segment-button> -->
-      <ion-segment-button value="pin" (click)="toggless('Completed')">
-        <ion-label>Completed</ion-label>
-      </ion-segment-button>
-
+      <ion-col>
+        <ion-segment-button value="pin" (click)="toggless('Completed')">
+          <ion-label>Completed</ion-label>
+        </ion-segment-button>
+      </ion-col>
     </ion-segment>
-
+  </ion-row>
 
 
 
@@ -130,7 +135,7 @@
         </ion-card-content>
 
         <ion-card-content>
-          {{text.data}} -- {{text.Quantity}}
+          {{text.data}} -- {{text.Quantity}}{{text.isTrukOpenOrClose}}{{text.typeOfHyva}}{{text.typeOfTrailer}}{{text.typeOfContainer}}
         </ion-card-content>
         <ion-button fill="solid" shape="round" class="place" (click)="bidById(text)">View Bids</ion-button>
         <ion-card-title style="float: right; margin-top: -53px;">₹ {{text.expectedPrice}}-/ </ion-card-title>

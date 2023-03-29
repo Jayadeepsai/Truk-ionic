@@ -48,6 +48,8 @@ export class AttachNewLoadPage implements AfterViewInit {
 
   OriginLocation: any;
   DestinationLocation: any;
+  isTrukOpenOrClose:any;
+  typeOfHyva:any;
   IsOrigin = false;
   IsDestination = false;
   directionsService = new google.maps.DirectionsService();
@@ -69,6 +71,8 @@ export class AttachNewLoadPage implements AfterViewInit {
   dropup: any;
   paymentTypeForOffline: any;
   advance: any;
+  typeOfTrailer: any;
+  typeOfContainer: any;
 
   constructor(
     public zone: NgZone, private alertController: AlertController
@@ -114,6 +118,28 @@ export class AttachNewLoadPage implements AfterViewInit {
     console.log(data)
     this.data = data
   }
+
+  truk(isTrukOpenOrClose: any) {
+    console.log(isTrukOpenOrClose)
+    this.isTrukOpenOrClose = isTrukOpenOrClose
+  }
+
+  HYVA(typeOfHyva: any) {
+    console.log(typeOfHyva)
+    this.typeOfHyva = typeOfHyva
+  }
+
+  trailer(typeOfTrailer: any) {
+    console.log(typeOfTrailer)
+    this.typeOfTrailer = typeOfTrailer
+  }
+
+  container(typeOfContainer: any) {
+    console.log(typeOfContainer)
+    this.typeOfContainer = typeOfContainer
+  }
+
+
 
   GetDestinationLocation(data: any) {
     this.IsDestination = true;
@@ -236,6 +262,10 @@ export class AttachNewLoadPage implements AfterViewInit {
       loadCapacity: this.loadCapacity,
       expectedPrice: this.expectedPrice,
       data: this.data,
+      isTrukOpenOrClose:this.isTrukOpenOrClose,
+      typeOfHyva:this.typeOfHyva,
+      typeOfTrailer:this.typeOfTrailer,
+      typeOfContainer:this.typeOfContainer,
       typeOfPay: this.typeOfPay,
       paymentTypeForOffline:this.paymentTypeForOffline,
       advance:this.advance,

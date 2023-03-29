@@ -107,10 +107,11 @@ img{
 }
 
 ion-segment-button{
-  --background: rgb(183, 182, 182);
-  color:white
+  --background: #F58E26;
+  color:black;
+  border-radius: 20px;
 }
 ion-segment{
-  --background: #F58E26;
+ // --background: #F58E26;
   border-radius: 20px;
 }
