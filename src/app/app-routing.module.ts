@@ -42,6 +42,22 @@ const routes: Routes = [
     path: 'add-truks',
     loadChildren: () => import('./add-truks/add-truks.module').then( m => m.AddTruksPageModule)
   },
+  {
+    path: 'driver-list',
+    loadChildren: () => import('./driver-list/driver-list.module').then( m => m.DriverListPageModule)
+  },
+  {
+    path: 'driver-active-loads',
+    loadChildren: () => import('./driver-active-loads/driver-active-loads.module').then( m => m.DriverActiveLoadsPageModule)
+  },
+  {
+    path: 'driver-more-details',
+    loadChildren: () => import('./driver-more-details/driver-more-details.module').then( m => m.DriverMoreDetailsPageModule)
+  },
+  {
+    path: 'pod',
+    loadChildren: () => import('./pod/pod.module').then( m => m.PodPageModule)
+  },
   
  
 ];

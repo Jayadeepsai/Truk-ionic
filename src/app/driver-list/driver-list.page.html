@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+      <ion-icon name="arrow-back-sharp" routerLink="" style="font-size: 30px;"></ion-icon>
+      <ion-title>My Drivers</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<br>
+<ion-content>
+
+  <ion-row>
+    <ion-segment [scrollable]="true" value="home">
+      <ion-col>
+        <ion-segment-button value="home" (click)="toggle()">
+          <ion-label style="font-size: medium;">Available Drivers</ion-label>
+        </ion-segment-button>
+      </ion-col>
+     <ion-col>
+      <ion-segment-button value="heart" (click)="toggles()">
+        <ion-label>My Drivers</ion-label>
+      </ion-segment-button>
+     </ion-col>
+      
+      <ion-col>
+        <ion-segment-button value="pin" (click)="toggless()">
+          <ion-label>Add Driver</ion-label>
+        </ion-segment-button>
+      </ion-col>
+    </ion-segment>
+  </ion-row>
+  
+<br>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <div style="margin-top: 1rem;">
+        <ion-icon name="ellipse-sharp" style="color: green;"></ion-icon>
+      </div></ion-col>
+    <ion-col>
+      <div style="margin-top: -1rem;">
+      <h4>Sagaram</h4>
+      <p>Available</p>
+    </div>
+    </ion-col>
+    <ion-col><ion-toggle ></ion-toggle></ion-col>
+    <ion-col><ion-button shape="round" color="light"  >View details</ion-button></ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>

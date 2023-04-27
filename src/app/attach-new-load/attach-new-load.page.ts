@@ -325,6 +325,8 @@ export class AttachNewLoadPage implements AfterViewInit {
     this.slides.slideNext();
   }
 
+  
+
 
 }
 

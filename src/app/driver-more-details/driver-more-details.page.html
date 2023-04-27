@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex;">
+      <ion-icon name="arrow-back-sharp" routerLink="/driver-active-loads" style="font-size: 30px;"></ion-icon>
+      <ion-title>Active Loads</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<br>
+<ion-content>
+
+  <div #map='' style="height: 65%;"></div>
+
+  <ion-card style="font-size: 16px;">
+    <ion-row>
+      <ion-col>Id</ion-col>
+      <ion-col>:</ion-col>
+      <ion-col>0987654</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>From destination</ion-col>
+      <ion-col>:</ion-col>
+      <ion-col>Ongole</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>To Destination</ion-col>
+      <ion-col>:</ion-col>
+      <ion-col>Nellore</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Vehicle type</ion-col>
+      <ion-col>:</ion-col>
+      <ion-col>LCV</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Quantity</ion-col>
+      <ion-col>:</ion-col>
+      <ion-col>7 Tonns</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Date & Time</ion-col>
+      <ion-col>:</ion-col>
+      <ion-col>03-04-2023 2:00PM</ion-col>
+    </ion-row>
+
+  </ion-card>
+</ion-content>
+
+
+<ion-button shape="round" class="more" style="width: 150px;float: right;" id="open-modal">Accept</ion-button>
+
+
+<ion-modal #modal trigger="open-modal">
+  <ng-template>
+    <ion-content>
+      <ion-toolbar>
+         
+        <ion-buttons slot="end">
+          <ion-button color="light" (click)="modal.dismiss()"><ion-icon name="close-sharp"></ion-icon></ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <div style="text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/233/233763.png" height="20%" width="20%">
+        <h3>Strat the trip</h3>
+        <div class="container">
+     <ion-button style="float: left;" class="yes">YES</ion-button>
+     <ion-button style="float: right;" (click)="modal.dismiss()" color="light">No</ion-button>
+    </div>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
